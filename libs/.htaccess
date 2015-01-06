@@ -1,5 +1,5 @@
 <IfModule mod_deflate.c>
-<FilesMatch "\.(html|txt|css|js|php|pl|woff|eot|map)$">
+<FilesMatch "\.(html|txt|css|js|php|pl|woff|eot|map|ttf)$">
 SetOutputFilter DEFLATE
 </FilesMatch>
 </IfModule>

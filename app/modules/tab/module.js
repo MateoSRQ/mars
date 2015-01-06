@@ -2,10 +2,10 @@
 
 App.module("TabModule", function (TabModule) {
     TabModule.startWithParent = false;
-    TabModule.headers = null;
-    TabModule.containers = null;
+
     this.collection = {};
     this.views = {};
+    TabModule.manager = null;
     TabModule.options = {};
     TabModule.vent = new Backbone.Wreqr.EventAggregator();
 });
@@ -23,8 +23,8 @@ requirejs.config({
 });
 
 require([
-    //'modules/tab/views/tab_header_item',
-    //'modules/tab/views/tab_container_item',
+    'modules/tab/views/header_item',
+    'modules/tab/views/panel_item',
     'modules/tab/views/container',
     'modules/tab/models/item',
     
@@ -32,8 +32,8 @@ require([
 ],
     function() {
         require([
-            //'modules/tab/views/tab_header_collection',
-            //'modules/tab/views/tab_container_collection',
+            'modules/tab/views/header_container',
+            'modules/tab/views/panel_container',
             'modules/tab/models/collection',
         ],   
         function () {
@@ -42,23 +42,17 @@ require([
                 this.addInitializer(function(){
                     App.execute('debug', 'App.TabModule.addInitializer function called.', 0);
                     if (this.options.id && typeof(this.options.id) !== undefined ) {
-                        this.collection = new App.TabModule.Collection();
+                        this.collection = new App.TabModule.CollectionModel();
+                        this.manager = new Marionette.RegionManager({});
                         App.TabModule.options = this.options;
-                        this.views.container = new App.TabModule.Container({ id: this.options.id, class: this.options.class });
+                        this.views.container = new App.TabModule.ContainerView({ id: this.options.id, class: this.options.class });
                         App.layout.getRegion('tab_container').show(this.views.container);
-                        
-                        // maybe on event
-                        //this.headers = new App.TabModule.TabHeaderView({collection: this.collection});
-                        //this.containers = new App.TabModule.TabContainerView({collection: this.collection});
-                        //App.tabHeaderRegion.show(this.headers);
-                        //App.tabContainerRegion.show(this.containers);
                     }
                     else {
                         App.execute('debug', 'App.TabModule.addInitializer: id required.', -1);
                     }
-                    
                 });
-                
+
                 TabModule.add = function(models) {
                     App.execute('debug', 'App.TabModule.add function called.', 0);
                     this.collection.add(models);
@@ -66,8 +60,17 @@ require([
                 
                 TabModule.remove = function(condition) {
                     App.execute('debug', 'App.TabModule.remove function called.', 0);
-                    this.collection.remove(this.collection.where(condition));
+                    var filtered = this.collection.where(condition);
+                    this.collection.remove(filtered);
+                    _.each(filtered, function(item){
+                       App.TabModule.manager.removeRegion(item.get('id')); 
+                    });
                 };
+            });
+            
+            App.TabModule.vent.on('App.TabModule.ContainerView.render', function(options){
+                App.execute('debug', 'App.TabModule.ContainerView.render function called.', 0);
+                App.vent.trigger('App.TabModule.ContainerView.render', this);
             });
             
             App.vent.trigger('TabModule.start');

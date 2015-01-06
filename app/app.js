@@ -20,14 +20,6 @@ require([
                 tab_container: "#tab_container_region"
             }
         });
-        
-        /* use layout view 
-        App.addRegions({
-            //tabegion: '#tab_region',
-            //stackRegion: '#stack_region',
-            //layoutRegion: '#layout_region'
-        });
-        */
 
         App.commands.setHandler('debug', function(text, level){
             if (level == -1) {
@@ -95,20 +87,38 @@ require([
             })
             App.StackModule.start();
         });
-        
+        */
         App.vent.on('TabModule.start', function(options){
             App.execute('debug', 'TabModule.start event called.', 0); 
             App.TabModule.add([
                 { id: 'tab_1', name: 'This is a big one', class: 'tab_item active', options: {  } },
                 { id: 'tab_2', name: 'This is a big one', class: 'tab_item', options: {  } },
                 { id: 'tab_3', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_4', name: 'This is a big one', class: 'tab_item', options: {  } }
+                { id: 'tab_4', name: 'This is a big one', class: 'tab_item', options: {  } },
+                { id: 'tab_5', name: 'This is a big one', class: 'tab_item', options: {  } },
+                { id: 'tab_6', name: 'This is a big one', class: 'tab_item', options: {  } },
+                { id: 'tab_7', name: 'This is a big one', class: 'tab_item', options: {  } },
+                { id: 'tab_8', name: 'This is a big one', class: 'tab_item', options: {  } }
             ]);
             App.TabModule.remove({
-                id: 'app_3'
+                id: 'tab_3'
+            })
+            
+            App.execute('load', 'map', 'MapModule', {});
+        });
+        
+        App.vent.on('MapModule.start', function(options){
+            App.execute('debug', 'MapModule.start event called.', 0);
+
+            App.MapModule.add([
+                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1') }},
+                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2') } }
+            ]);
+            App.MapModule.remove({
+                id: 'map_2'
             })
         });
-        */
+
         
         require([
 
@@ -119,6 +129,7 @@ require([
                 
             ], function(){
                 App.execute('load', 'tab', 'TabModule', {id: 'tab_container', class: 'tab_container'});
+                
                 //App.execute('load', 'stack', 'StackModule', {id: 'stack', region: App.stackRegion});
 
                 //App.execute('load', 'layout', 'LayoutModule', {id: 'layout', region: App.layoutRegion, class: 'layout'});

@@ -1,4 +1,4 @@
 'use strict'
-App.TabModule.Collection = Backbone.Collection.extend({
-    model: App.TabModule.Item
+App.TabModule.CollectionModel = Backbone.Collection.extend({
+    model: App.TabModule.ItemModel
 });
