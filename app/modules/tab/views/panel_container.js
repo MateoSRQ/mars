@@ -7,8 +7,8 @@ define([
         App.TabModule.PanelContainerView  = Backbone.Marionette.CompositeView.extend({
             tagName: 'div',
             initialize: function(){
-                //this.$el.prop('id', this.model.get('id'));
-                //this.$el.prop('class', this.model.get('class')+ ' tab-pane');
+                //this.$el.prop('id', this.model.get('panel_container_id'));
+                this.$el.prop('class', 'panel_container');
             },
             events: {
 

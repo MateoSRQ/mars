@@ -10,3 +10,41 @@ body {
     padding: 5px;
     box-sizing: border-box;
 }
+
+/* TABS */
+
+
+#tab_container_region, #tab_container {
+    width: 100%;
+    height: 100%;    
+}
+
+#header_container {
+    height: 46px;
+}
+
+#panel_container {
+    width: 100%;
+    height: 100%;
+    height: calc(100% - 46px);
+   
+}
+
+.panel_container {
+    width: 100%;
+    height: 100%;
+  
+}
+
+
+.tab_panel {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* MAP */
+.map_item {
+    width: 100%;
+    height: 100%;   
+}

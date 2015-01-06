@@ -6,7 +6,7 @@ require([
     'material_design',
     'css!css_bootstrap/bootstrap.min.css',
     'css!css_bootstrap/paper.min.css',
-    'css!css_bootstrap/roboto/font_roboto.css'
+    'css!css_bootstrap/roboto/font_roboto.css',
     //'css!css_material_design/material.min.css'
 ],
     function (Marionette) {
@@ -56,67 +56,43 @@ require([
             }
             App.layout.render();
         });
-        /*
-        App.vent.on('WindowModule.start', function(options){
-            App.execute('debug', 'WindowModule.start event called.', 0); 
-            App.WindowModule.add([
-                { id: 'window_1', class: 'class_1', options: { draggable: {}, resizable: {} } },
-                { id: 'window_2', class: 'class_2', options: { draggable: {}, resizable: {} } },
-                { id: 'window_3', class: 'class_3', options: { draggable: {}, resizable: {} } },
-                { id: 'window_4', class: 'class_4', options: { draggable: {}, resizable: {} } }
-            ]);
-            App.WindowModule.remove({
-                id: 'window_3'
-            })
-        });
-        
-        App.vent.on('StackModule.start', function(options){
-            App.execute('debug', 'StackModule.start event called.', 0); 
-            App.StackModule.add([
-                { id: 'stack_1', class: 'stack_item well', options: {  } },
-                { id: 'stack_2', class: 'stack_item well', options: {  } },
-                { id: 'stack_3', class: 'stack_item well', options: {  } },
-                { id: 'stack_4', class: 'stack_item well', options: {  } },
-                { id: 'stack_5', class: 'stack_item well', options: {  } },
-                { id: 'stack_6', class: 'stack_item well', options: {  } },
-                { id: 'stack_7', class: 'stack_item well', options: {  } },
-                { id: 'stack_8', class: 'stack_item well', options: {  } }
-            ]);
-            App.StackModule.remove({
-                id: 'stack_3'
-            })
-            App.StackModule.start();
-        });
-        */
+
         App.vent.on('TabModule.start', function(options){
             App.execute('debug', 'TabModule.start event called.', 0); 
             App.TabModule.add([
-                { id: 'tab_1', name: 'This is a big one', class: 'tab_item active', options: {  } },
-                { id: 'tab_2', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_3', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_4', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_5', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_6', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_7', name: 'This is a big one', class: 'tab_item', options: {  } },
-                { id: 'tab_8', name: 'This is a big one', class: 'tab_item', options: {  } }
+                { id: 'tab_1', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item active', options: {  } },
+                { id: 'tab_2', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                { id: 'tab_3', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                { id: 'tab_4', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                { id: 'tab_5', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                { id: 'tab_6', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                { id: 'tab_7', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                { id: 'tab_8', name: 'This is a big one', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } }
             ]);
             App.TabModule.remove({
                 id: 'tab_3'
             })
             
             App.execute('load', 'map', 'MapModule', {});
+            
+            $('#tab_1').html('HOLA');
+            $('#tab_2').html('COMO ESTAS');
+            
+            
         });
         
         App.vent.on('MapModule.start', function(options){
             App.execute('debug', 'MapModule.start event called.', 0);
-
+            /*
             App.MapModule.add([
                 { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1') }},
-                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2') } }
+                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2') }}
             ]);
+            /*
             App.MapModule.remove({
                 id: 'map_2'
             })
+            */
         });
 
         
@@ -129,11 +105,7 @@ require([
                 
             ], function(){
                 App.execute('load', 'tab', 'TabModule', {id: 'tab_container', class: 'tab_container'});
-                
-                //App.execute('load', 'stack', 'StackModule', {id: 'stack', region: App.stackRegion});
-
-                //App.execute('load', 'layout', 'LayoutModule', {id: 'layout', region: App.layoutRegion, class: 'layout'});
-                
+               
             })
         })
     }

@@ -8,7 +8,7 @@ define([
             tagName: 'li',
             initialize: function(){
                 //this.$el.prop('id', this.model.get('id'));
-                this.$el.prop('class', this.model.get('class'));
+                this.$el.prop('class', this.model.get('tab_class'));
             },
             events: {
 

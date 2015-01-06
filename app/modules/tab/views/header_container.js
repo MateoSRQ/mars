@@ -8,7 +8,7 @@ define([
             tagName: 'ul',
             initialize: function(){
                 this.$el.prop('id', this.options.id);
-                this.$el.prop('class', this.options.class + ' nav nav-pills');
+                this.$el.prop('class', this.options.class + ' nav nav-tabs');
                 //this.$el.attr('role', 'tabpanel');
                 
             },
