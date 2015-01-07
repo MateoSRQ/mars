@@ -70,7 +70,12 @@ require([
             
             App.TabModule.vent.on('App.TabModule.ContainerView.render', function(options){
                 App.execute('debug', 'App.TabModule.ContainerView.render function called.', 0);
-                App.vent.trigger('App.TabModule.ContainerView.render', this);
+                App.vent.trigger('App.TabModule.ContainerView.render', options);
+            });
+            
+            App.TabModule.vent.on('App.TabModule.PanelItemView.render', function(options){
+                App.execute('debug', 'App.TabModule.PanelItemView.render function called.', 0);
+                App.vent.trigger('App.TabModule.PanelItemView.render', options);
             });
             
             App.vent.trigger('TabModule.start');

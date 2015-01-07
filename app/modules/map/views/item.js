@@ -25,18 +25,18 @@ define([
             onRender: function(){
                 App.execute('debug', 'App.MapModule.ItemView.onRender event called.', 0);
                 var _options = this.model.get('options');
-                
-                /* TEST */
-                console.log('test');
-                console.log(this.model.get('id'))
-                var mapHandler = new ol.Map({
-                    target: 'tab_2',
+                App.MapModule.vent.trigger('App.MapModule.ItemView.render', this);
+            },
+            
+            init: function() {
+                this.mapHandler = new ol.Map({
+                    target: this.model.get('id'),
                     controls: ol.control.defaults({
-                        attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+                        attributionOptions:  ({
                           collapsible: false
                         })
                       }),
-                    //.extend([mousePositionControl]),
+
                     layers: [
                         new ol.layer.Tile({
                             source: new ol.source.MapQuest({layer: 'sat'}),
@@ -48,23 +48,9 @@ define([
                         zoom: 4,
                     })
                 });
-                console.log(this.mapHandler);
-                
-                var layer = {
-                    layer: new ol.layer.Tile({
-                            source: new ol.source.MapQuest({layer: 'sat'}),
-                            name: 'tesla'
-                        }),
-                    type: 'raster',
-                };
-                console.log(mapHandler.addLayer)
-                console.log(layer)
-                //mapHandler.addLayer(layer);
-                
-                
-                
-                App.MapModule.vent.trigger('App.MapModule.ItemView.render', this);
-            },
+            }
+            
+            
 
             
         });

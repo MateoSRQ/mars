@@ -7,12 +7,24 @@ html, body {
 
 body {
     background: #fff;
-    padding: 5px;
+    
     box-sizing: border-box;
+}
+
+#header {
+    margin-bottom: 0px !important;
+}
+
+.navbar-header {
+    height: 20px !important;    
 }
 
 /* TABS */
 
+#tab-region {
+    width: 100%;
+    height: calc(100% - 60px);
+}
 
 #tab_container_region, #tab_container {
     width: 100%;

@@ -42,15 +42,11 @@ require([
                     App.execute('debug', 'App.MapModule.addInitializer function called.', 0);
                     //if (this.options.id && typeof(this.options.id) !== undefined ) {
                         this.collection = new App.MapModule.CollectionModel();
-
-                        
-                        App.MapModule.options = this.options;
-
+                       App.MapModule.options = this.options;
                     //}
                     //else {
                     //    App.execute('debug', 'App.MapModule.addInitializer: id required.', -1);
                     //}
-                    
                 });
                 
                 MapModule.add = function(models) {
@@ -60,6 +56,7 @@ require([
                         App.MapModule.views[item.get('id')] = new App.MapModule.ItemView({model: item});
                         item.get('options').region.show(App.MapModule.views[item.get('id')]);
                     });
+                    //App.MapModule.init();
                 };
                 
                 MapModule.remove = function(condition) {
@@ -71,6 +68,35 @@ require([
                     this.collection.remove(filtered);
                     // dont forget to remove
                 };
+                
+                MapModule.init = function(id) {
+                    App.MapModule.views[id].init();
+                }
+                
+                /*
+                MapModule.init = function() {
+                    var mapHandler = new ol.Map({
+                        target: 'map_1',
+                        controls: ol.control.defaults({
+                            attributionOptions:  ({
+                              collapsible: false
+                            })
+                          }),
+    
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.MapQuest({layer: 'sat'}),
+                                name: 'tesla'
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
+                            zoom: 4,
+                        })
+                    });
+                }
+                */
+                
             });
 
             App.vent.trigger('MapModule.start');

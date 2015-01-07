@@ -15,7 +15,6 @@ define([
             },
             attributes : function () {
                 return {
-
                 };
             },
             template: function(model) {
