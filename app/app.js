@@ -2,6 +2,7 @@
 console.clear();
 
 require([
+    'backbone_relational',
     'marionette',
     'material_design',
     'css!css_bootstrap/bootstrap.min.css',
@@ -14,7 +15,7 @@ require([
         });
         
         App.LayoutView = Backbone.Marionette.LayoutView.extend({
-            el: 'body',
+            el: '#app-container',
             template: '#app-template',
             regions: {
                 tab_container: "#tab_container_region"
@@ -45,10 +46,30 @@ require([
         
         App.on('before:start', function(options){
             App.execute('debug', 'App before:start event called.', 0);
+            App.load();
         });
+        
+        App.load = function() {
+            App.execute('debug', 'App.load function called.', 0);
+            
+            App.TabModel = Backbone.Model.extend({});
+            App.TabCollection = Backbone.Collection.extend({
+                model: App.TabModel
+            });
+            App.Tabs = new App.TabCollection;
+            
+            App.Tabs.add({
+                id: 'tab_1', name: 'Mapa de Información', panel_class: 'tab_panel active', tab_class: 'tab_item active', options: {}
+            })
+            App.Tabs.add({
+                id: 'tab_2', name: 'Otro gato', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  }
+            })
+        }
+        
         
         App.on('start', function(options){
             App.execute('debug', 'App.start event called.', 0);
+            
             App.layout = new App.LayoutView();
             if (Backbone.history){
                 Backbone.history.start();
@@ -59,23 +80,27 @@ require([
 
         App.vent.on('TabModule.start', function(options){
             App.execute('debug', 'TabModule.start event called.', 0); 
-            App.TabModule.add([
-                { id: 'tab_1', name: 'Mapa de información', panel_class: 'tab_panel active', tab_class: 'tab_item active', options: {  } },
-                { id: 'tab_2', name: 'Tab 2', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
-                { id: 'tab_3', name: 'Tab 3', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
-                { id: 'tab_4', name: 'Tab 4', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+            console.log(App.Tabs);
+            
+            App.TabModule.add(App.Tabs.models)
+            
+            //App.TabModule.add([
+                //{ id: 'tab_1', name: 'Mapa de información', panel_class: 'tab_panel active', tab_class: 'tab_item active', options: {  } },
+                //{ id: 'tab_2', name: 'Tab 2', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                //{ id: 'tab_3', name: 'Tab 3', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
+                //{ id: 'tab_4', name: 'Tab 4', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
 
-            ]);
+            //]);
+            /*
             App.TabModule.remove({
                 id: 'tab_3'
             })
+            */
             
-            App.execute('load', 'map', 'MapModule', {});
         });
         
         App.vent.on('MapModule.start', function(options){
             App.execute('debug', 'MapModule.start event called.', 0);
-           console.log(App.TabModule.manager.get('tab_1')); 
             
             
             App.MapModule.add([
@@ -100,8 +125,6 @@ require([
         /* TAB RENDERED */
         App.vent.on('App.TabModule.PanelItemView.render', function(options){
             App.execute('debug', 'App.TabModule.PanelItemView.render event called.', 0);
-            console.log('eoeoeoeoeoe');
-            
             /*
             App.MapModule.add([
                 { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1') }},
@@ -120,8 +143,9 @@ require([
             require([
                 
             ], function(){
-                App.execute('load', 'tab', 'TabModule', {id: 'tab_container', class: 'tab_container'});
-               
+                App.execute('load', 'tab',   'TabModule', {id: 'tab_container', class: 'tab_container tabs-below'});
+                //App.execute('load', 'map',   'MapModule', {});
+                //App.execute('load', 'stack', 'StackModule', {});
             })
         })
     }

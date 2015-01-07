@@ -9,6 +9,7 @@ requirejs.config({
         'jquery':  { deps: [] },
         'underscore': { deps: [], exports: ['_'] },
         'backbone': { deps: ['underscore', 'jquery'], exports: ['Backbone'] },
+        'backbone_relational': { deps: ['backbone'] },
         'marionette': { deps: ['backbone'], exports:  ['Marionette']},
         'bootstrap': { deps: ['jquery'] },
         'material_design': { deps: ['bootstrap'] },
@@ -19,6 +20,7 @@ requirejs.config({
         'jquery': '../jquery/jquery-2.1.1.min',
         'underscore': '../underscore/underscore-1.7.0.min',
         'backbone': '../backbone/backbone-1.1.2.min',
+        'backbone_relational': '../backbone/backbone.relational.min',
         'marionette': '../marionette/marionette-2.3.0.min',
 
         
