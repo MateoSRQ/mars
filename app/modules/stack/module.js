@@ -3,7 +3,8 @@
 App.module("StackModule", function (StackModule) {
     StackModule.startWithParent = false;
     this.item = null;
-    this.views = {};
+    this.views = [];
+    this.collections = [];
     StackModule.options = {};
     StackModule.manager = null;
     StackModule.vent = new Backbone.Wreqr.EventAggregator();
@@ -33,33 +34,36 @@ require([
     //'modules/map/models/item',
     //'css!modules/map/css/map.css',
 ],
-    function(ol) {
+    function(bespoke) {
         require([
-            'modules/stack/models/collection'
+            'modules/stack/models/collection',
+            'modules/stack/views/container'
         ],   
         function () {
             App.module('StackModule', function (StackModule, App, Backbone, Marionette, $, _) {
 
                 this.addInitializer(function(){
                     App.execute('debug', 'App.StackModule.addInitializer function called.', 0);
-                    if (this.options.id && typeof(this.options.id) !== undefined ) {
-                        this.collection = new App.StackModule.CollectionModel();
-                        App.StackModule.options = this.options;
-                    }
+                    //if (this.options.id && typeof(this.options.id) !== undefined ) {
+                        //this.collection = new App.StackModule.CollectionModel();
+                        this.manager = new Marionette.RegionManager({});
+                        //App.StackModule.options = this.options;
+
+                    //}
                     //else {
                     //    App.execute('debug', 'App.StackModule.addInitializer: id required.', -1);
                     //}
                 });
                 
-                StackModule.add = function(models) {
-                    
+                StackModule.add = function(id, dom, models) {
                     App.execute('debug', 'App.StackModule.add function called.', 0);
-                    this.collection.add(models);
-                    this.collection.each(function(item){
-                        App.StackModule.views[item.get('id')] = new App.StackModule.ContainerView({});
-                        item.get('options').region.show(App.StackModule.views[item.get('id')]);
-                    });
-                    
+                    console.log(id)
+                    if (typeof this.collections[id] === 'undefined') {
+                        this.collections[id] = new App.StackModule.CollectionModel();
+                        this.views[id] = new App.StackModule.ContainerView({collection: this.collections[id]});
+                        this.manager.addRegion(id, dom);
+                        this.manager.get(id).show(App.StackModule.views[id]);
+                    }
                     //App.StackModule.init();
                 };
                 
@@ -74,10 +78,7 @@ require([
                     // dont forget to remove
                     */
                 };
-                
-                StackModule.init = function(id) {
-                    //App.StackModule.views[id].init();
-                }
+
 
                 
             });

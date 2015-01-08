@@ -1,4 +1,4 @@
 'use strict'
-App.MapModule.CollectionModel = Backbone.Collection.extend({
-    model: App.MapModule.ItemModel
+App.StackModule.CollectionModel = Backbone.Collection.extend({
+    model: App.StackModule.ItemModel
 });

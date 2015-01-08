@@ -86,7 +86,7 @@ body {
 }
 
 /* TEST */
-.panel-test {
+#panel-test {
     position: absolute;
     top: 0;
     left: 0;
