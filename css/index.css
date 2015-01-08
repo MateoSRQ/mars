@@ -82,11 +82,12 @@ body {
 /* MAP */
 .map_item {
     width: 100%;
-    height: 100%;   
+    height: 100%;
+    position: relative;
 }
 
 /* TEST */
-#panel-test {
+#panel_1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -94,6 +95,17 @@ body {
     height: 100px;
     background: #00ff00;
     opacity: 0.5;
+    z-index: 100000;
 }
 
+#panel_2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: #00ff00;
+    opacity: 0.5;
+    z-index: 100000;
+}
 

@@ -18,8 +18,9 @@ define([
                     
                 };
             },
-            template: function() {
+            template: function(model) {
                 return _.template(item)({
+                    panel_id: model.options.panel_id                
                 })
             },
             onRender: function(){

@@ -57,15 +57,41 @@ require([
                 
                 StackModule.add = function(id, dom, models) {
                     App.execute('debug', 'App.StackModule.add function called.', 0);
-                    console.log(id)
-                    if (typeof this.collections[id] === 'undefined') {
-                        this.collections[id] = new App.StackModule.CollectionModel();
-                        this.views[id] = new App.StackModule.ContainerView({collection: this.collections[id]});
-                        this.manager.addRegion(id, dom);
-                        this.manager.get(id).show(App.StackModule.views[id]);
+                    if (typeof StackModule.collections[id] === 'undefined') {
+                        console.log(StackModule.collections[id]);
+                        StackModule.collections[id] = new App.StackModule.CollectionModel();
+                        console.log(StackModule.collections[id]);
                     }
+                    console.log('****');
+                    console.log(id);
+                    console.log(StackModule.collections[id].add);
+                    
+                    
+                    
+                    
+                    StackModule.collections[id].add({name:'page_1'})
+                    
+                    /*
+                    this.views[id] = new App.StackModule.ContainerView({id: id, collection: this.collections[id]});
+                    this.manager.addRegion(id, dom);
+                    this.manager.get(id).show(App.StackModule.views[id]);
+                    */    
                     //App.StackModule.init();
                 };
+                
+                StackModule.addchild = function(id, models) {
+                    App.execute('debug', 'App.StackModule.addchild function called.', 0);
+                    console.log(this.collections[id])
+                    this.collections[id].add(models);
+                    /*
+                    if (typeof this.collections[id] === 'undefined') {
+                        console.log('I am an error')
+                    }
+                    else {
+                        this.collections[id].add(models);
+                    }
+                    */
+                }
                 
                 StackModule.remove = function(condition) {
                     /*
@@ -79,7 +105,10 @@ require([
                     */
                 };
 
-
+                StackModule.vent.on('App.StackModule.ContainerView.render', function(options) {
+                    App.vent.trigger('App.StackModule.ContainerView.render', options);
+                });
+            
                 
             });
 

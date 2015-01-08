@@ -25,6 +25,11 @@ define([
             onRender: function(){
                 App.execute('debug', 'App.TabModule.PanelItemView.onRender event called.', 0);
                 var _options = this.model.get('options');
+               
+                if (!this.$el.hasClass('active')) {
+                    this.$el.addClass('active');
+                    this.$el.removeClass('active');
+                }
                 App.TabModule.manager.addRegion(this.model.get('id'), '#' + this.model.get('id'));
                 App.TabModule.vent.trigger('App.TabModule.PanelItemView.render', this);
             },

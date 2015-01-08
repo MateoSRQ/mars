@@ -65,6 +65,7 @@ require([
             App.execute('debug', 'TabModule.start event called.', 0);
             App.TabModule.add([
                 { id: 'tab_1', name: 'Mapa de información', panel_class: 'tab_panel active', tab_class: 'tab_item active', options: {  } },
+                { id: 'tab_2', name: 'Mapa de datos', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
             ]);
             App.execute('load', 'map', 'MapModule', {});
         });
@@ -72,10 +73,12 @@ require([
         App.vent.on('MapModule.start', function(options){
             App.execute('debug', 'MapModule.start event called.', 0);
             App.MapModule.add([
-                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1') }}
+                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1' }},
+                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2' }}
             ]);
 
             App.MapModule.init('map_1');
+            App.MapModule.init('map_2');
             App.execute('load', 'stack', 'StackModule', {});
         });
         
@@ -84,23 +87,33 @@ require([
 
             App.StackModule.add(
                 'stack_1',
-                '#panel-test',
+                '#panel_1',
                 [
                 { id: 'stack_1', class: 'stack_item', options: { }}
                 ]
             );
+            
+            /*
 
+            */
 
         });
-        
         
         /* TAB RENDERED */
         App.vent.on('App.TabModule.PanelItemView.render', function(options){
             App.execute('debug', 'App.TabModule.PanelItemView.render event called.', 0);
-
         });
 
-
+        App.vent.on('App.StackModule.ContainerView.render', function(options){
+            App.execute('debug', 'App.StackModule.ContainerView.render', 0);
+            console.log(options);
+            if (options.$el.attr('id') == 'stack_1') {
+                App.StackModule.addchild('stack_1', [
+                    { id: 'card_1'},
+                    { id: 'card_2' }
+                ]);                
+            }
+        });
         
         require([
 
