@@ -20,7 +20,8 @@ define([
             },
             template: function(model) {
                 return _.template(item)({
-                    panel_id: model.options.panel_id                
+                    panel_id: model.options.panel_id,
+                    panel_class: model.options.panel_class
                 })
             },
             onRender: function(){
@@ -40,7 +41,7 @@ define([
 
                     layers: [
                         new ol.layer.Tile({
-                            source: new ol.source.MapQuest({layer: 'sat'}),
+                            source: new ol.source.MapQuest({layer: 'osm'}),
                             name: 'tesla'
                         })
                     ],

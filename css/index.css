@@ -87,25 +87,33 @@ body {
 }
 
 /* TEST */
-#panel_1 {
+.panel_stack {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    background: #00ff00;
-    opacity: 0.5;
+    background: transparent;
+
     z-index: 100000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-#panel_2 {
+.stack_container {
+    /*
+    width: 100%;
+    height: calc(100%);
+    */
+    
+    width: 80px;
+    height: 80px;
+    bottom: -40px;
+    border-radius: 80px;
+    left: 50%;
+    transform: translateX(-50%);   
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    background: #00ff00;
-    opacity: 0.5;
-    z-index: 100000;
-}
 
+    -webkit-box-shadow: -2px 0 2px 1px rgba(0,0,0,0.3);
+    box-shadow: -2px 0 2px 1px rgba(0,0,0,0.3); 
+
+    background: #ffffff;
+    opacity: 1;
+}

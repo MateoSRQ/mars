@@ -48,8 +48,6 @@ require([
             App.execute('debug', 'App before:start event called.', 0);
         });
         
-       
-        
         App.on('start', function(options){
             App.execute('debug', 'App.start event called.', 0);
             
@@ -73,8 +71,8 @@ require([
         App.vent.on('MapModule.start', function(options){
             App.execute('debug', 'MapModule.start event called.', 0);
             App.MapModule.add([
-                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1' }},
-                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2' }}
+                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack' }},
+                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack' }}
             ]);
 
             App.MapModule.init('map_1');
@@ -92,11 +90,21 @@ require([
                 { id: 'stack_1', class: 'stack_item', options: { }}
                 ]
             );
+            App.StackModule.addchild('stack_1', [
+                { id: 'page_1_1' },
+                { id: 'page_1_2' },
+                { id: 'page_1_3' },
+                { id: 'page_1_4' },
+            ])
             
             /*
+            console.log(App);
+            console.log(App.StackModule);
+            console.log(App.StackModule.collections);
+            console.log(App.MapModule.collection);
 
+            App.StackModule.init('stack_1')
             */
-
         });
         
         /* TAB RENDERED */

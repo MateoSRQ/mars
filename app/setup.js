@@ -13,7 +13,7 @@ requirejs.config({
         'marionette': { deps: ['backbone'], exports:  ['Marionette']},
         'bootstrap': { deps: ['jquery'] },
         'material_design': { deps: ['bootstrap'] },
-        'velocity': { deps: [] },
+
         'app': { deps: ['marionette'] }
     },
     paths: {
@@ -29,7 +29,7 @@ requirejs.config({
         'material_design': '../material_design/bootstrap-material-design-master/dist/js/material.min',
         'css_material_design': '../material_design/bootstrap-material-design-master/dist/css',
         /*
-        'velocity': '../velocity/velocity-1.1.0-min',
+        
         'css_font-awesome': '../font-awesome',
         */
         'app': '../../app/app',

@@ -5,9 +5,9 @@ define([
     ],
     function(item){
         App.StackModule.ItemView  = Backbone.Marionette.ItemView.extend({
-            tagName: 'li',
+            tagName: 'div',
             initialize: function(){
-                //this.$el.prop('id', this.model.get('id'));
+                this.$el.prop('id', this.model.get('id'));
                 this.$el.prop('class', 'stack_item' );
             },
             events: {
