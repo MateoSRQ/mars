@@ -4,6 +4,7 @@ App.module("StackModule", function (StackModule) {
     StackModule.startWithParent = false;
     this.item = null;
     this.views = [];
+    //this.
     this.collections = [];
     StackModule.options = {};
     StackModule.manager = null;
@@ -32,12 +33,14 @@ requirejs.config({
 
 require([
     'bespoke',
+    'bespoke-classes',
+    'bespoke-keys',
     'modules/stack/models/item',
     'modules/stack/views/item',
     'velocity',
     'css!modules/stack/css/stack.css',
 ],
-    function(bespoke) {
+    function(bespoke, classes, keys) {
         require([
             'modules/stack/models/collection',
             'modules/stack/views/container'
@@ -81,6 +84,13 @@ require([
                     }
                 }
                 
+                StackModule.init = function(id) {
+                    App.execute('debug', 'App.StackModule.init function called.', 0);
+                    this.views[id].handler = bespoke.from('#' + id, [keys(), classes()]);
+                    console.log(this.views[id].handler);
+                    App.vent.trigger('App.StackModule.init', this);
+                }
+                
                 StackModule.remove = function(condition) {
                     /*
                     App.execute('debug', 'App.StackModule.remove function called.', 0);
@@ -94,6 +104,8 @@ require([
                 };
 
                 StackModule.vent.on('App.StackModule.ContainerView.render', function(options) {
+                    App.execute('debug', 'App.StackModule.ContainerView.render function called.', 0);
+                   
                     App.vent.trigger('App.StackModule.ContainerView.render', options);
                 });
             

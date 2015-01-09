@@ -3,9 +3,9 @@ define([
     'text!modules/stack/templates/container.html',
     ],
     function(container){
-        
         App.StackModule.ContainerView  = Backbone.Marionette.CompositeView.extend({
-            tagName: 'div',
+            tagName: 'article',
+            handler: null,
             events: {
                 'click': 'test'
             },
@@ -29,6 +29,8 @@ define([
             
             onRender: function() {
                 App.execute('debug', 'App.StackModule.ContainerView.onRender function called.', 0);
+
+
                 App.StackModule.vent.trigger('App.StackModule.ContainerView.render', this);
             },
             
@@ -41,7 +43,7 @@ define([
                         bottom: -40,
                         borderRadius: [ 80, "easeInSine"  ],
                         backgroundColor: '#fff',
-                        opacity: 1,
+                        backgroundColorAlpha: 1,
                     }, {easing: [ 600, 35 ], duration: 1000 });
                     this.$el.removeClass('active');
                 }
@@ -57,8 +59,8 @@ define([
                         height: '100%',
                         bottom: 0,
                         borderRadius: 0,
-                        backgroundColor: '#222',
-                        opacity: 0.6,
+                        backgroundColor: '#444',
+                        backgroundColorAlpha: 0.3,
                     }, {easing: [ 600, 35 ], duration: 700 });
                     this.$el.addClass('active');
                 }

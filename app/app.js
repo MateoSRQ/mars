@@ -71,12 +71,12 @@ require([
         App.vent.on('MapModule.start', function(options){
             App.execute('debug', 'MapModule.start event called.', 0);
             App.MapModule.add([
-                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack' }},
-                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack' }}
+                { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow' }},
+                //{ id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack' }}
             ]);
 
             App.MapModule.init('map_1');
-            App.MapModule.init('map_2');
+            //App.MapModule.init('map_2');
             App.execute('load', 'stack', 'StackModule', {});
         });
         
@@ -95,7 +95,13 @@ require([
                 { id: 'page_1_2' },
                 { id: 'page_1_3' },
                 { id: 'page_1_4' },
+                { id: 'page_1_5' },
+                { id: 'page_1_6' },
+                { id: 'page_1_7' },
+                { id: 'page_1_8' },
             ])
+            
+            App.StackModule.init('stack_1');
             
             /*
             console.log(App);
