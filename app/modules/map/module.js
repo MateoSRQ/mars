@@ -18,7 +18,7 @@ requirejs.config({
         'ol': { deps: [], exports: 'ol' }
     },
     paths: {
-        'ol': '../../app/modules/map/libs/openlayers/build/ol-debug', // change in production!
+        'ol': '../../app/modules/map/libs/openlayers/build/ol', // change in production!
         'css_ol': '../../app/modules/map/libs/openlayers/css/ol.css'
     }
 });

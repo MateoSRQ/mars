@@ -42,7 +42,7 @@ define([
                         borderRadius: [ 80, "easeInSine"  ],
                         backgroundColor: '#fff',
                         opacity: 1,
-                    }, {easing: [ 600, 35 ], duration: 1000 });
+                    }, {easing: [ 600, 35 ], duration: 400 });
                     this.$el.removeClass('active');
                 }
                 else {
@@ -59,7 +59,7 @@ define([
                         borderRadius: 0,
                         backgroundColor: '#222',
                         opacity: 0.6,
-                    }, {easing: [ 600, 35 ], duration: 700 });
+                    }, {easing: [ 600, 35 ], duration: 1000 });
                     this.$el.addClass('active');
                 }
                 
