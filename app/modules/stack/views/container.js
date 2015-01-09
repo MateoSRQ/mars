@@ -34,18 +34,36 @@ define([
             
             test: function(e) {
                 console.log(this.$el);
-                this.$el.velocity({
-                    /*
-                    width: 80,
-                    height: 80,
-                    bottom: -40,
-                    borderRadius: [ 80, "easeInSine"  ]
-                    */
-                    width: '100%',
-                    height: '100%',
-                    bottom: 0,
-                    borderRadius: 0,
-                }, {easing: [ 600, 35 ], duration: 1000 })
+                if (this.$el.hasClass('active')) {
+                    this.$el.velocity({
+                        width: 80,
+                        height: 80,
+                        bottom: -40,
+                        borderRadius: [ 80, "easeInSine"  ],
+                        backgroundColor: '#fff',
+                        opacity: 1,
+                    }, {easing: [ 600, 35 ], duration: 1000 });
+                    this.$el.removeClass('active');
+                }
+                else {
+                    this.$el.velocity({
+                        /*
+                        width: 80,
+                        height: 80,
+                        bottom: -40,
+                        borderRadius: [ 80, "easeInSine"  ]
+                        */
+                        width: '100%',
+                        height: '100%',
+                        bottom: 0,
+                        borderRadius: 0,
+                        backgroundColor: '#222',
+                        opacity: 0.6,
+                    }, {easing: [ 600, 35 ], duration: 700 });
+                    this.$el.addClass('active');
+                }
+                
+
             },
 
             childView: App.StackModule.ItemView
