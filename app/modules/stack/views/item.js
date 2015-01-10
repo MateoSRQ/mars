@@ -8,7 +8,7 @@ define([
             tagName: 'section',
             initialize: function(){
                 this.$el.prop('id', this.model.get('id'));
-                this.$el.prop('class', 'stack_item' );
+                this.$el.prop('class', 'stack_item well' );
             },
             events: {
 

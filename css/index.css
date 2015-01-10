@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     background: #fff;
     overflow: hidden;
+
 }
 
 body {
@@ -13,6 +14,14 @@ body {
 
 #header {
     margin-bottom: 0px !important;
+    background: #ffffff !important;
+    color: #666666 !important;
+    -webkit-box-shadow: 2px 2px 2px 2px rgba(65,56,67,0.2);
+    box-shadow: 2px 2px 2px 2px rgba(65,56,67,0.2);
+    position: absolute;
+    height: 64px !important;
+    width: 100% !important;
+    z-index: 1000020;
 }
 
 .navbar-header {
@@ -20,9 +29,13 @@ body {
 }
 
 /* TABS */
+
+
 #app-container {
     width: 100%;
-    height: calc(100% - 55px);    
+    height: calc(100% - 55px);
+    position: absolute;
+    top: 64px;
 }
 
 #tab-region {
@@ -54,6 +67,7 @@ body {
 .tab_panel {
     width: 100%;
     height: 100%;
+
 }
 
 .nav-tabs {
@@ -103,32 +117,54 @@ body {
     height: calc(100%);
     */
     
-    width: 80px;
-    height: 80px;
-    bottom: -40px;
-    border-radius: 80px;
+    width: 48px;
+    height: 48px;
+    bottom: 6px;
+    border-radius: 48px;
     left: 50%;
     transform: translateX(-50%);   
     position: absolute;
 
-    -webkit-box-shadow: -2px 0 2px 1px rgba(0,0,0,0.3);
-    box-shadow: -2px 0 2px 1px rgba(0,0,0,0.3); 
 
-    background: #ffffff;
+
+    background: transparent;
+
     opacity: 1;
     pointer-events: all;
 }
 
 .stack_container:hover {
 
-    -webkit-box-shadow: -4px 0 4px 3px rgba(0,0,0,0.25);
-    box-shadow: -4px 0 4px 3px rgba(0,0,0,0.25);
 
 }
 
 
 .stack_item {
-
+    background: #fff !important;
     float: left;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16) !important;
+}
+
+.panel_button {
+    width: 44px;
+    height: 44px;
+    pointer-events: none;
+    bottom: 8px;
+    border-radius: 44px;
+    left: 50%;
+    transform: translateX(-50%);   
+    position: absolute;
+    background: #2196f3;
+    z-index: 300000000;
+}
+
+.panel_button div {
+    color: #fff;
+    margin-left: -8px;
+    margin-top: -0px;
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-size: 20px !important;
     
 }

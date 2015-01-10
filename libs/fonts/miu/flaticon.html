@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flaticon WebFont</title>
+    <link rel="stylesheet" type="text/css" href="flaticon.css">
+    <meta charset="UTF-8">
+    <style>
+    body {
+        font-family: sans-serif;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 20px;
+        color:#333;
+    }
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+        font-family: Flaticon;
+        font-size: 30px;
+        font-style: normal;
+        margin-left: 20px;
+        color: #333;
+    }
+    .image p {
+		font-size: 12px;
+		margin: 0px;
+		clear: none;
+		width: 300px;
+		line-height: 40px;
+	}
+    .text {
+        float: left;
+        font-size:14px;
+        margin-top: 15px;
+    }
+    .text ul {
+        margin-left:0px;
+        color:#111;
+        margin-bottom:20px;
+    }
+    .text .ex {
+        font-size:12px;
+        color:#666;
+        margin-left:35px;
+        display:block;
+    }
+    .text ul li {
+        margin-top:10px;
+        list-style:none;
+    }
+    .num {
+        background:#66A523;
+        color:#fff;
+        border-radius:20px;
+        padding:1px;
+        display:inline-block;
+        width:22px;
+        height:22px;
+        text-align:center;
+        margin-right: 5px;
+    }
+    .text ul strong {
+        font-weight:normal;
+        color:#000;
+    }
+    .image {
+        width: 280px;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 30px;
+    }
+    #glyphs {
+        clear: both;
+    }
+    .image p:nth-child(even) i {
+        clear: none;
+    }
+    .glyph {
+        display: inline-block;
+        width: 120px;
+        margin: 10px;
+        text-align: center;
+        vertical-align: top;
+        background: #FFF;
+    }
+    .glyph .glyph-icon {
+        padding: 10px;
+        display: block;
+        font-family:"Flaticon";
+        font-size: 64px;
+        line-height: 1;
+    }
+    .glyph .glyph-icon:before {
+        font-size: 64px;
+        color: #666;
+        margin-left: 0;
+    }
+    .class-name {
+        font-size: 12px;
+    }
+    .author-name {
+		font-size: 10px;
+	}
+	a{
+		color: #66A523;
+	}
+    .instructions {
+        font-style:italic;
+        font-size:22px;
+        margin-bottom:10px;
+    }
+    .iconsuse {
+        font-size:22px;
+        font-style:italic;
+        padding-top:20px;
+        margin-top:20px;
+        border-top:1px solid #bbb;
+    }
+    .usetitle {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .class-name:last-child {
+        font-size: 10px;
+        color:#888;
+    }
+    .class-name:last-child a {
+        font-size: 10px;
+        color:#555;
+    }
+    .class-name:last-child a:hover {
+        color:#66A523;
+    }
+    .glyph > input {
+        display: block;
+        width: 100px;
+        margin: 5px auto;
+        text-align: center;
+        font-size: 12px;
+        cursor: text;
+    }
+    .glyph > input.icon-input {
+        font-family:"Flaticon";
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    h1.logo {
+        font-size: 40px;
+        letter-spacing: -1px;
+        margin-top: -16px;
+        text-transform: lowercase;
+        border-bottom:1px solid #bbb;
+    }
+    h1.logo strong {
+        font-size: 16px;
+        font-family:sans-serif;
+        font-weight:normal;
+        color:#333;
+    }
+    h1.logo a {
+        color:#34302d;
+        text-decoration: none;
+    }
+    h1.logo a span {
+        color:#66A523;
+    }
+    #footer {
+        padding-top:40px;
+        clear:both;
+        text-align:center;
+    }
+    #footer a {
+        color:#66A523;
+    }
+    textarea {
+		margin: 0px;
+		width: 800px;
+		height: 150px;
+		border: 1px solid #CCC;
+		resize: none;
+		background: #EEE;
+    }
+    .author-link, .attrDiv a{
+    	font-size: 12px;
+    	color: #333;
+    	text-decoration: none;
+    }
+    .external {
+    	display: block;
+    }
+    .attrDiv {
+		font-size: 12px;
+	}
+    .attribution {
+        border-top: 1px solid #AAA;
+        margin: 10px 0;
+        padding-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="http://www.flaticon.com">
+                <span>FLAT</span>ICON</a>
+            <strong>Font Demo</strong>
+        </h1>
+    </header>
+
+    <section class="demo">
+        <div class="text">
+
+            <div class="instructions">Instructions:</div>
+
+            <ul>
+                <li>
+                    <p>
+                        <span class="num">1</span>Copy the "Fonts" files and CSS files to your website CSS folder.
+                </li>
+                <li>
+                    <p>
+                        <span class="num">2</span>Add the CSS link to your website source code on header.
+                        <br />
+                        <span class="ex">&lt;head&gt;
+                            <br/>...
+                            <br/>&lt;link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css"&gt;
+                            <br/>...
+                            <br/>&lt;/head&gt;</span>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="num">3</span>Use the icon class on "display:inline" elements:
+                        <br />
+                        <span class="ex">Use example: &lt;i class=&quot;flaticon-airplane49&quot;&gt;&lt;/i&gt; or &lt;span class=&quot;flaticon-airplane49&quot;&gt;&lt;/span&gt;</span>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="glyphs"><div class="glyph">
+		<div class="glyph-icon flaticon-add138"></div>
+		<div class="class-name">.flaticon-add138</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-file_54327">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add140"></div>
+		<div class="class-name">.flaticon-add140</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-black-notebook-notes-symbol-of-interface_54533">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add142"></div>
+		<div class="class-name">.flaticon-add142</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-file_54595">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add143"></div>
+		<div class="class-name">.flaticon-add143</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-file-interface-symbol-of-paper-sheet-with-text-lines-and-plus-sign_54596">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add144"></div>
+		<div class="class-name">.flaticon-add144</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-folder-interface-outlined-button_54627">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add145"></div>
+		<div class="class-name">.flaticon-add145</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-file-sheet_54635">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add147"></div>
+		<div class="class-name">.flaticon-add147</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-a-folder-interface-black-symbol-with-plus-sign_54707">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add150"></div>
+		<div class="class-name">.flaticon-add150</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-tab-file-interface-symbol_54769">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add151"></div>
+		<div class="class-name">.flaticon-add151</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-folder_54770">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add152"></div>
+		<div class="class-name">.flaticon-add152</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-folder-black-interface-symbol_54790">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add153"></div>
+		<div class="class-name">.flaticon-add153</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-black-circular-interface-button_54807">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-add154"></div>
+		<div class="class-name">.flaticon-add154</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/add-circular-button-outline-with-plus-sign_54901">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-alarm30"></div>
+		<div class="class-name">.flaticon-alarm30</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/alarm-clock-black-symbol_54284">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-arrow591"></div>
+		<div class="class-name">.flaticon-arrow591</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/arrow-triangular-black-shape-symbol-pointing-upper-right_54315">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-arrow594"></div>
+		<div class="class-name">.flaticon-arrow594</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/arrow-back-button_54906">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-attachment14"></div>
+		<div class="class-name">.flaticon-attachment14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/attachment-vertical-paperclip-interface-symbol_54525">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-attachment16"></div>
+		<div class="class-name">.flaticon-attachment16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/attachment_54948">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-audio47"></div>
+		<div class="class-name">.flaticon-audio47</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/audio-interface-speaker-symbol_54430">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-audio48"></div>
+		<div class="class-name">.flaticon-audio48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/audio-interface-symbol_54465">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-back43"></div>
+		<div class="class-name">.flaticon-back43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/back-left-arrow-circular-button_54558">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-back45"></div>
+		<div class="class-name">.flaticon-back45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/back-left-arrow-circular-button_54882">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-back48"></div>
+		<div class="class-name">.flaticon-back48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/back-left-arrow-curve-symbol_55013">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-battery140"></div>
+		<div class="class-name">.flaticon-battery140</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/battery-empty-status-interface-symbol-of-gross-line_54229">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-battery141"></div>
+		<div class="class-name">.flaticon-battery141</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/battery-with-a-bolt_54252">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-battery142"></div>
+		<div class="class-name">.flaticon-battery142</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/battery-with-bolt_54419">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-birthday16"></div>
+		<div class="class-name">.flaticon-birthday16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/birthday-cake-with-candles_54453">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-birthday17"></div>
+		<div class="class-name">.flaticon-birthday17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/birthday-cake-with-three-burning-candles_54474">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-black375"></div>
+		<div class="class-name">.flaticon-black375</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/black-cloud-of-stormy-weather_54248">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-black379"></div>
+		<div class="class-name">.flaticon-black379</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/black-board-with-business-graphical-presentation_54488">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-black381"></div>
+		<div class="class-name">.flaticon-black381</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/black-notebook_54518">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-black382"></div>
+		<div class="class-name">.flaticon-black382</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/black-paper-notes-notebook-with-spring_54521">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-black385"></div>
+		<div class="class-name">.flaticon-black385</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/black-papers-symbol_54911">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blackboard10"></div>
+		<div class="class-name">.flaticon-blackboard10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blackboard-with-business-graphical-presentation_54648">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blackboard11"></div>
+		<div class="class-name">.flaticon-blackboard11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blackboard_54699">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blackboard12"></div>
+		<div class="class-name">.flaticon-blackboard12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blackboard-with-text-lines_54753">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blackboard8"></div>
+		<div class="class-name">.flaticon-blackboard8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blackboard-with-a-list_54208">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blackboard9"></div>
+		<div class="class-name">.flaticon-blackboard9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blackboard_54356">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-blank28"></div>
+		<div class="class-name">.flaticon-blank28</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/blank-writing-pages-with-tabs_54499">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-board1"></div>
+		<div class="class-name">.flaticon-board1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/board-tool-for-presentations_54681">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-book186"></div>
+		<div class="class-name">.flaticon-book186</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/book-open-blank-pages_54515">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-book189"></div>
+		<div class="class-name">.flaticon-book189</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/book-opened-outlined-education-tool-symbol_54799">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-bookmark29"></div>
+		<div class="class-name">.flaticon-bookmark29</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/bookmark-big-outlined-interface-tool-symbol_54494">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-bookmark30"></div>
+		<div class="class-name">.flaticon-bookmark30</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/bookmark-black-tool-symbol_54830">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-box59"></div>
+		<div class="class-name">.flaticon-box59</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/box-or-drawer-side-view-outlined-tool-symbol_54578">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-box60"></div>
+		<div class="class-name">.flaticon-box60</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/box-black-container-tool_54733">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-button4"></div>
+		<div class="class-name">.flaticon-button4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/button-symbol-of-nine-dots_54917">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cash14"></div>
+		<div class="class-name">.flaticon-cash14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cash-money_54991">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cellphone54"></div>
+		<div class="class-name">.flaticon-cellphone54</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cellphone-or-tablet-horizontal-position-screen-visualization-option_54283">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cellphone56"></div>
+		<div class="class-name">.flaticon-cellphone56</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cellphone-outline_54765">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cellphone57"></div>
+		<div class="class-name">.flaticon-cellphone57</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cellphone_54984">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cellphone58"></div>
+		<div class="class-name">.flaticon-cellphone58</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cellphone-in-horizontal-position_55010">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-chat52"></div>
+		<div class="class-name">.flaticon-chat52</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/chat-rectangular-empty-speech-bubble-symbol_54869">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-chat56"></div>
+		<div class="class-name">.flaticon-chat56</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/chat-two-outlined-interface-symbol_55044">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-chocolate4"></div>
+		<div class="class-name">.flaticon-chocolate4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/chocolate-cupcake_54934">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circle92"></div>
+		<div class="class-name">.flaticon-circle92</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circle-with-diagonal-line-inside_54479">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular221"></div>
+		<div class="class-name">.flaticon-circular221</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-black-clock_54491">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular223"></div>
+		<div class="class-name">.flaticon-circular223</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-alarm-clock_54545">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular225"></div>
+		<div class="class-name">.flaticon-circular225</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-symbol-with-diagonal-line-inside_54606">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular226"></div>
+		<div class="class-name">.flaticon-circular226</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-wall-clock_54654">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular230"></div>
+		<div class="class-name">.flaticon-circular230</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-gift-top-view-with-ribbon_54902">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular231"></div>
+		<div class="class-name">.flaticon-circular231</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-arrows-refresh-interface-symbol_54943">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-circular232"></div>
+		<div class="class-name">.flaticon-circular232</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/circular-gift_55024">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clipboard69"></div>
+		<div class="class-name">.flaticon-clipboard69</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clipboard-black-tool_54794">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clipboard70"></div>
+		<div class="class-name">.flaticon-clipboard70</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clipboard_54832">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clock73"></div>
+		<div class="class-name">.flaticon-clock73</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clock-dark-black-circular-tool-shape-symbol_54199">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clock74"></div>
+		<div class="class-name">.flaticon-clock74</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clock-symbol-with-counterclockwise-back-circular-rotating-arrow-around_54415">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clock77"></div>
+		<div class="class-name">.flaticon-clock77</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clock-outline_54981">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clockwise4"></div>
+		<div class="class-name">.flaticon-clockwise4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clockwise-circular-arrow_54224">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-clockwise5"></div>
+		<div class="class-name">.flaticon-clockwise5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/clockwise-circular-arrow_54536">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cloud259"></div>
+		<div class="class-name">.flaticon-cloud259</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cloud_54811">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cocktail24"></div>
+		<div class="class-name">.flaticon-cocktail24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cocktail-outlined-glass-with-a-straw_54232">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cocktail25"></div>
+		<div class="class-name">.flaticon-cocktail25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cocktail-black-silhouette_54732">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-coffee60"></div>
+		<div class="class-name">.flaticon-coffee60</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/coffee-shop-interface-symbol-of-black-cup-on-horizontal-line_54276">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-coffee61"></div>
+		<div class="class-name">.flaticon-coffee61</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/coffee-shop-interface-symbol-of-a-cup_54684">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cogwheel23"></div>
+		<div class="class-name">.flaticon-cogwheel23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cogwheel-tool-with-pointed-cogs_54177">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-comment43"></div>
+		<div class="class-name">.flaticon-comment43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/comment-black-rectangular-speech-bubble-interface-symbol_54567">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-compass83"></div>
+		<div class="class-name">.flaticon-compass83</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/compass_54642">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-compass84"></div>
+		<div class="class-name">.flaticon-compass84</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/compass_54894">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-computer160"></div>
+		<div class="class-name">.flaticon-computer160</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/computer-monitor-outline_54259">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-configuration15"></div>
+		<div class="class-name">.flaticon-configuration15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/configuration-gear-interface-symbol_54193">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-copy20"></div>
+		<div class="class-name">.flaticon-copy20</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/copy-black-interface-symbol-of-two-paper-sheets_54519">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-copy21"></div>
+		<div class="class-name">.flaticon-copy21</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/copy-two-squares-outlined-interface-symbol_54599">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-copy22"></div>
+		<div class="class-name">.flaticon-copy22</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/copy-two-rectangular-paper-sheets-interface-symbol_54626">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-copy25"></div>
+		<div class="class-name">.flaticon-copy25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/copy-black-interface-symbol-of-two-paper-sheets_55039">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-counterclockwise3"></div>
+		<div class="class-name">.flaticon-counterclockwise3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/counterclockwise-rotating-circular-arrow-symbol_54403">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-counterclockwise4"></div>
+		<div class="class-name">.flaticon-counterclockwise4</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/counterclockwise-circular-arrow_54609">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-counterclockwise6"></div>
+		<div class="class-name">.flaticon-counterclockwise6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/counterclockwise-rotating-arrow-around-a-clock_54804">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cross78"></div>
+		<div class="class-name">.flaticon-cross78</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cross-delete-black-circular-button_54501">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cross80"></div>
+		<div class="class-name">.flaticon-cross80</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cross-circular-button-outline_54789">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-crystal3"></div>
+		<div class="class-name">.flaticon-crystal3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/crystal-glass-outline-drinking-tool-symbol_54288">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-cupcake15"></div>
+		<div class="class-name">.flaticon-cupcake15</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/cupcake-thin-outline_54893">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-curved22"></div>
+		<div class="class-name">.flaticon-curved22</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/curved-left-arrow-symbol_54393">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-daily19"></div>
+		<div class="class-name">.flaticon-daily19</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/daily-calendar-on-day-10-page-black-symbol_54931">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dark54"></div>
+		<div class="class-name">.flaticon-dark54</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dark-earth-globe-symbol-of-international-business_54228">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-decrease3"></div>
+		<div class="class-name">.flaticon-decrease3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/decrease-zoom-magnifier-symbol-of-interface-with-minus-sign-inside_54349">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-discharged1"></div>
+		<div class="class-name">.flaticon-discharged1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/discharged-battery-interface-symbol_54316">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-documents18"></div>
+		<div class="class-name">.flaticon-documents18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/documents_54420">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dollar153"></div>
+		<div class="class-name">.flaticon-dollar153</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dollar-coins_54249">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dollar154"></div>
+		<div class="class-name">.flaticon-dollar154</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dollar-bills-black-papers-symbol_54502">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dollar155"></div>
+		<div class="class-name">.flaticon-dollar155</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dollar-money-circular-symbol_54592">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dollar156"></div>
+		<div class="class-name">.flaticon-dollar156</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dollar-coins-stack_54877">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dollar157"></div>
+		<div class="class-name">.flaticon-dollar157</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dollar-bill_54977">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-dollars36"></div>
+		<div class="class-name">.flaticon-dollars36</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/dollars-bills_54777">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-down65"></div>
+		<div class="class-name">.flaticon-down65</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/down-arrow-circular-button_54839">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-download140"></div>
+		<div class="class-name">.flaticon-download140</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/download-from-the-cloud_54644">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-download143"></div>
+		<div class="class-name">.flaticon-download143</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/download-symbol_54672">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-download144"></div>
+		<div class="class-name">.flaticon-download144</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/download-black-circular-button_54736">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-download145"></div>
+		<div class="class-name">.flaticon-download145</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/download_54740">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-drink46"></div>
+		<div class="class-name">.flaticon-drink46</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/drink-glass-black-silhouette_54452">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-email65"></div>
+		<div class="class-name">.flaticon-email65</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/email-new-symbol-of-black-back-closed-envelope-for-interface_54388">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-email68"></div>
+		<div class="class-name">.flaticon-email68</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/email-circular-button_54559">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-email70"></div>
+		<div class="class-name">.flaticon-email70</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/email-black-frontal-envelope-symbol_54682">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-email71"></div>
+		<div class="class-name">.flaticon-email71</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/email-black-circular-button_54738">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-email73"></div>
+		<div class="class-name">.flaticon-email73</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/email-back-outlined-envelope-interface-symbol_54890">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-empty38"></div>
+		<div class="class-name">.flaticon-empty38</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/empty-rectangle_54752">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-event3"></div>
+		<div class="class-name">.flaticon-event3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/event-calendar-symbol_54711">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-event5"></div>
+		<div class="class-name">.flaticon-event5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/event-calendar-symbol_54885">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-event7"></div>
+		<div class="class-name">.flaticon-event7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/event-on-day-10_55012">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-facebook51"></div>
+		<div class="class-name">.flaticon-facebook51</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/facebook-logo-in-circular-button-outlined-social-symbol_54422">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-facebook52"></div>
+		<div class="class-name">.flaticon-facebook52</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/facebook-black-social-button-circle_54997">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-favorites3"></div>
+		<div class="class-name">.flaticon-favorites3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/favorites-star_54632">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-file63"></div>
+		<div class="class-name">.flaticon-file63</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/file-interface-symbol-of-text-paper-sheet_54551">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-file64"></div>
+		<div class="class-name">.flaticon-file64</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/file-black-sheet-with-text-lines-interface-symbol_54576">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-file65"></div>
+		<div class="class-name">.flaticon-file65</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/file-black-text-paper-sheet-symbol-with-one-folded-corner_54587">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-file66"></div>
+		<div class="class-name">.flaticon-file66</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/file_54607">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flag49"></div>
+		<div class="class-name">.flaticon-flag49</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flag_54333">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flag50"></div>
+		<div class="class-name">.flaticon-flag50</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flag-symbol-of-triangular-shape_54417">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flag51"></div>
+		<div class="class-name">.flaticon-flag51</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flag-black-symbol_54444">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-flag54"></div>
+		<div class="class-name">.flaticon-flag54</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/flag-symbol-of-black-triangular-shape_54928">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-folder170"></div>
+		<div class="class-name">.flaticon-folder170</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/folder-black-symbol_54683">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-folder171"></div>
+		<div class="class-name">.flaticon-folder171</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/folder-outline_54846">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-folder172"></div>
+		<div class="class-name">.flaticon-folder172</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/folder-outlined-symbol_54926">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-frame23"></div>
+		<div class="class-name">.flaticon-frame23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/frame-square-symbol-with-four-angles_54483">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-full38"></div>
+		<div class="class-name">.flaticon-full38</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/full-battery-status-interface-symbol-with-stripes-inside_54216">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-full39"></div>
+		<div class="class-name">.flaticon-full39</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/full-battery-interface-symbol_54317">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-geometric12"></div>
+		<div class="class-name">.flaticon-geometric12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/geometric-shapes-outlined-symbol_54597">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-glass47"></div>
+		<div class="class-name">.flaticon-glass47</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/glass-solid-shape_54988">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-glass48"></div>
+		<div class="class-name">.flaticon-glass48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/glass_54995">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-global25"></div>
+		<div class="class-name">.flaticon-global25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/global-earth-globe-symbol-with-americas-shape_54187">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-google114"></div>
+		<div class="class-name">.flaticon-google114</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/google-plus_54824">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-google115"></div>
+		<div class="class-name">.flaticon-google115</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/google-plus-circular-button_54976">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-graphical7"></div>
+		<div class="class-name">.flaticon-graphical7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/graphical-presentation-of-business-on-a-board_54617">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-graphical9"></div>
+		<div class="class-name">.flaticon-graphical9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/graphical-presentation-on-whiteboard_55029">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-half32"></div>
+		<div class="class-name">.flaticon-half32</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/half-battery-status-interface-symbol-of-lines_54189">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-half33"></div>
+		<div class="class-name">.flaticon-half33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/half-battery-status-interface-symbol_54686">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphones31"></div>
+		<div class="class-name">.flaticon-headphones31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphones-tool-for-ears_54185">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-headphones33"></div>
+		<div class="class-name">.flaticon-headphones33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/headphones_55042">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-heart280"></div>
+		<div class="class-name">.flaticon-heart280</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/heart-black-button-symbol-of-interface-for-social-likes_54371">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-heart281"></div>
+		<div class="class-name">.flaticon-heart281</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/heart-outline-like-interface-symbol_54543">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-help16"></div>
+		<div class="class-name">.flaticon-help16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/help-circular-button-of-interface-with-question-mark_54268">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-horizontal34"></div>
+		<div class="class-name">.flaticon-horizontal34</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/horizontal-and-vertical-screen-visualization-options-symbol_54275">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-horizontal35"></div>
+		<div class="class-name">.flaticon-horizontal35</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/horizontal-position-option-of-screen-visualization-of-a-phone-or-a-tablet_54320">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-house128"></div>
+		<div class="class-name">.flaticon-house128</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/house-black-building_54504">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-house129"></div>
+		<div class="class-name">.flaticon-house129</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/house-building-outline_54986">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-images17"></div>
+		<div class="class-name">.flaticon-images17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/images-night-landscape-rectangular-interface-symbol_54368">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-images19"></div>
+		<div class="class-name">.flaticon-images19</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/images-interface-symbol_54629">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-images20"></div>
+		<div class="class-name">.flaticon-images20</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/images_54935">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-info21"></div>
+		<div class="class-name">.flaticon-info21</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/info-solid-circular-button_54949">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-information52"></div>
+		<div class="class-name">.flaticon-information52</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/information-web-circular-button-symbol_54200">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-internet35"></div>
+		<div class="class-name">.flaticon-internet35</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/internet-download-symbol_54564">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-keyboard48"></div>
+		<div class="class-name">.flaticon-keyboard48</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/keyboard-of-phone-nine-squares-black-buttons-symbol_54404">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-label22"></div>
+		<div class="class-name">.flaticon-label22</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/label-black-button-interface-symbol_54704">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-label23"></div>
+		<div class="class-name">.flaticon-label23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/label-outlined-button-symbol-of-interface_54706">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-label24"></div>
+		<div class="class-name">.flaticon-label24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/label-outline_54845">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-laptop106"></div>
+		<div class="class-name">.flaticon-laptop106</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/laptop-black-computer_55015">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-laptop107"></div>
+		<div class="class-name">.flaticon-laptop107</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/laptop_55022">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-left157"></div>
+		<div class="class-name">.flaticon-left157</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/left-arrow-curved-outline_54829">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-left164"></div>
+		<div class="class-name">.flaticon-left164</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/left-arrow-angle-in-circular-button_55158">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-less12"></div>
+		<div class="class-name">.flaticon-less12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/less-zoom-symbol_54834">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-library12"></div>
+		<div class="class-name">.flaticon-library12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/library-symbol-of-three-rectangular-books-outlines_54307">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-locked33"></div>
+		<div class="class-name">.flaticon-locked33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/locked-black-square-padlock-symbol_54330">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-locked35"></div>
+		<div class="class-name">.flaticon-locked35</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/locked-padlock_54892">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-login10"></div>
+		<div class="class-name">.flaticon-login10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/login_54798">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-login11"></div>
+		<div class="class-name">.flaticon-login11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/login_54815">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-logout10"></div>
+		<div class="class-name">.flaticon-logout10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/logout_54814">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-logout11"></div>
+		<div class="class-name">.flaticon-logout11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/logout_55023">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-logout7"></div>
+		<div class="class-name">.flaticon-logout7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/logout_54257">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-logout8"></div>
+		<div class="class-name">.flaticon-logout8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/logout-house-symbol-with-arrow-pointing-out-to-right_54358">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mail68"></div>
+		<div class="class-name">.flaticon-mail68</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mail-frontal-envelope-symbol_54243">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-map89"></div>
+		<div class="class-name">.flaticon-map89</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/map-folded-outlined-paper-symbol_55028">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-menu42"></div>
+		<div class="class-name">.flaticon-menu42</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/menu-three-lines-button-interface-symbol_54459">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-menu45"></div>
+		<div class="class-name">.flaticon-menu45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/menu-button-of-three-lines_54994">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mobile216"></div>
+		<div class="class-name">.flaticon-mobile216</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mobile-phone-outline_54429">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mobile218"></div>
+		<div class="class-name">.flaticon-mobile218</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mobile-phone_54718">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-money125"></div>
+		<div class="class-name">.flaticon-money125</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/money-coin-or-button-with-dollar-sign-in-black-circle_54428">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-monitor76"></div>
+		<div class="class-name">.flaticon-monitor76</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/monitor_54971">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-more10"></div>
+		<div class="class-name">.flaticon-more10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/more-button-interface-symbol-of-three-horizontal-aligned-dots_54175">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-more11"></div>
+		<div class="class-name">.flaticon-more11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/more-circular-button-interface-symbol-of-three-horizontal-dots_54495">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-more12"></div>
+		<div class="class-name">.flaticon-more12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/more-circular-symbol_54555">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-more13"></div>
+		<div class="class-name">.flaticon-more13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/more-button-of-three-circles_54720">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-more14"></div>
+		<div class="class-name">.flaticon-more14</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/more-zoom_54726">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music214"></div>
+		<div class="class-name">.flaticon-music214</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-circular-button_54367">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music215"></div>
+		<div class="class-name">.flaticon-music215</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-black-circular-button_54450">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music216"></div>
+		<div class="class-name">.flaticon-music216</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-circular-black-button_54590">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-music217"></div>
+		<div class="class-name">.flaticon-music217</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/music-circular-button_54734">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mute31"></div>
+		<div class="class-name">.flaticon-mute31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mute-audio_54506">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-mute33"></div>
+		<div class="class-name">.flaticon-mute33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/mute-speaker-audio-interface-symbol_54580">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-new85"></div>
+		<div class="class-name">.flaticon-new85</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/new-message-interface-symbol_54888">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-nine17"></div>
+		<div class="class-name">.flaticon-nine17</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/nine-circles-button_54823">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-notebook42"></div>
+		<div class="class-name">.flaticon-notebook42</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/folder-black-tool-shape-with-one-tab_54714">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-notebook43"></div>
+		<div class="class-name">.flaticon-notebook43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/notebook_54747">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-open199"></div>
+		<div class="class-name">.flaticon-open199</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/open-folder_55031">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-opened26"></div>
+		<div class="class-name">.flaticon-opened26</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/opened-folder_54685">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-options"></div>
+		<div class="class-name">.flaticon-options</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/options-circular-button_54998">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pencil82"></div>
+		<div class="class-name">.flaticon-pencil82</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pencil-writing-diagonal-tool-symbol_54477">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pencil83"></div>
+		<div class="class-name">.flaticon-pencil83</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pencil-writing-tool-symbol-in-circular-button-outline_54602">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pencil84"></div>
+		<div class="class-name">.flaticon-pencil84</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pencil-outline_54864">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pencil86"></div>
+		<div class="class-name">.flaticon-pencil86</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pencil-black-circular-button_55018">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-phone348"></div>
+		<div class="class-name">.flaticon-phone348</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/button-or-phone-keyboard-of-nine-square-buttons-outlines_54354">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-phone349"></div>
+		<div class="class-name">.flaticon-phone349</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/phone-outline_54445">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-phone350"></div>
+		<div class="class-name">.flaticon-phone350</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/phone-or-tablet-in-horizontal-position-outlined-tool-symbol_54487">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-photo177"></div>
+		<div class="class-name">.flaticon-photo177</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/photo-camera-outline_54217">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-photo182"></div>
+		<div class="class-name">.flaticon-photo182</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/photo-camera-black-tool_54944">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-photos11"></div>
+		<div class="class-name">.flaticon-photos11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/photos_55016">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pinterest30"></div>
+		<div class="class-name">.flaticon-pinterest30</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pinterest-logotype-circle_54186">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pinterest31"></div>
+		<div class="class-name">.flaticon-pinterest31</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pinterest-social-visual-website-logotype_54401">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pizza12"></div>
+		<div class="class-name">.flaticon-pizza12</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pizza-triangular-piece_54549">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-pizza13"></div>
+		<div class="class-name">.flaticon-pizza13</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/pizza-triangle_54723">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-placeholder19"></div>
+		<div class="class-name">.flaticon-placeholder19</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/placeholder-black-shape-for-localization-on-maps_54574">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-placeholder20"></div>
+		<div class="class-name">.flaticon-placeholder20</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/placeholder_54665">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-play79"></div>
+		<div class="class-name">.flaticon-play79</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/play-symbol_54179">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-play81"></div>
+		<div class="class-name">.flaticon-play81</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/play-black-rectangular-multimedia-button-symbol_54535">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-portfolio25"></div>
+		<div class="class-name">.flaticon-portfolio25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/portfolio-black-tool_54742">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-portfolio26"></div>
+		<div class="class-name">.flaticon-portfolio26</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/portfolio-outline_54978">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-postcard5"></div>
+		<div class="class-name">.flaticon-postcard5</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/postcard_54552">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-postcard6"></div>
+		<div class="class-name">.flaticon-postcard6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/postcard-or-email-envelope-front_54884">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-power98"></div>
+		<div class="class-name">.flaticon-power98</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/power-outlined-symbol_54722">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-power99"></div>
+		<div class="class-name">.flaticon-power99</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/power-button-sign_54762">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-print33"></div>
+		<div class="class-name">.flaticon-print33</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/print-dark-printer-tool-symbol-of-interface_54236">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-printer78"></div>
+		<div class="class-name">.flaticon-printer78</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/printer-outline_54471">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-questions1"></div>
+		<div class="class-name">.flaticon-questions1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/questions-circular-button_54591">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-reading19"></div>
+		<div class="class-name">.flaticon-reading19</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/reading-books-three-black-rectangles_54209">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-recycle64"></div>
+		<div class="class-name">.flaticon-recycle64</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/recycle-bin-black-tool_54758">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-recycling11"></div>
+		<div class="class-name">.flaticon-recycling11</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/recycling-container_54421">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-refresh51"></div>
+		<div class="class-name">.flaticon-refresh51</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/refresh_54803">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-refresh52"></div>
+		<div class="class-name">.flaticon-refresh52</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/refresh-two-counterclockwise-circular-arrows-interface-symbol_55006">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-refreshing1"></div>
+		<div class="class-name">.flaticon-refreshing1</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/refreshing-arrows-couple_54861">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-restaurant40"></div>
+		<div class="class-name">.flaticon-restaurant40</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/restaurant-interface-symbol-of-fork-and-knife-couple_54537">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-restaurant41"></div>
+		<div class="class-name">.flaticon-restaurant41</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/restaurant_54643">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-restaurant42"></div>
+		<div class="class-name">.flaticon-restaurant42</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/restaurant-fork-and-knife-symbol_54793">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-restaurant43"></div>
+		<div class="class-name">.flaticon-restaurant43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/restaurant-cutlery-symbol_54808">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right140"></div>
+		<div class="class-name">.flaticon-right140</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-arrow-in-black-circular-button_54244">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right145"></div>
+		<div class="class-name">.flaticon-right145</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-arrow-black-circular-button_54503">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right147"></div>
+		<div class="class-name">.flaticon-right147</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-arrow-circular-button_54651">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right149"></div>
+		<div class="class-name">.flaticon-right149</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-arrow_54710">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right150"></div>
+		<div class="class-name">.flaticon-right150</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-arrow-circular-button_54730">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right151"></div>
+		<div class="class-name">.flaticon-right151</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-arrow-outline_54756">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-right158"></div>
+		<div class="class-name">.flaticon-right158</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/right-curved-arrow_54957">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-save16"></div>
+		<div class="class-name">.flaticon-save16</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/save-diskette-interface-symbol_54581">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-saving3"></div>
+		<div class="class-name">.flaticon-saving3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/saving-outlined-diskette-interface-symbol_54614">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-search75"></div>
+		<div class="class-name">.flaticon-search75</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/search-magnifier-interface-symbol_54527">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-search76"></div>
+		<div class="class-name">.flaticon-search76</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/search-magnifier-interface-symbol_54554">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-semicircular6"></div>
+		<div class="class-name">.flaticon-semicircular6</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/semicircular-right-arrow-symbol_54657">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-semicircular7"></div>
+		<div class="class-name">.flaticon-semicircular7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/semicircular-left-arrow_54849">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-settings42"></div>
+		<div class="class-name">.flaticon-settings42</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/settings-circular-button_54242">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speaker79"></div>
+		<div class="class-name">.flaticon-speaker79</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speaker-outline_54650">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speaker82"></div>
+		<div class="class-name">.flaticon-speaker82</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speaker-outline_54751">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speaker85"></div>
+		<div class="class-name">.flaticon-speaker85</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speaker_54913">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speaker88"></div>
+		<div class="class-name">.flaticon-speaker88</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speaker-solid-tool_54992">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speech100"></div>
+		<div class="class-name">.flaticon-speech100</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speech-bubble-rectangular-outline-symbol-with-text-lines_54999">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speech98"></div>
+		<div class="class-name">.flaticon-speech98</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speech-bubble-black-rectangular-shape_54669">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speed8"></div>
+		<div class="class-name">.flaticon-speed8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speed-control-tool_54500">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-speedometer29"></div>
+		<div class="class-name">.flaticon-speedometer29</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/speedometer-black-circular-tool_54820">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-square154"></div>
+		<div class="class-name">.flaticon-square154</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/square-shape-design-tool-interface-symbol_54462">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-square158"></div>
+		<div class="class-name">.flaticon-square158</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/square-outline-with-up-arrow-interface-upload-symbol_54571">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-square159"></div>
+		<div class="class-name">.flaticon-square159</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/square-shape-interface-symbol_54615">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-square162"></div>
+		<div class="class-name">.flaticon-square162</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/square-frame-interface-symbol_54856">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-star156"></div>
+		<div class="class-name">.flaticon-star156</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/star-favorite-black-symbol_54688">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet78"></div>
+		<div class="class-name">.flaticon-tablet78</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-computer-tool-symbol_54203">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet79"></div>
+		<div class="class-name">.flaticon-tablet79</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-position-options-outlined-symbol_54220">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet80"></div>
+		<div class="class-name">.flaticon-tablet80</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-or-cellphone-tool-symbol_54235">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet81"></div>
+		<div class="class-name">.flaticon-tablet81</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-screen-visualization-positions-options-symbol_54360">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet82"></div>
+		<div class="class-name">.flaticon-tablet82</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-digital-device_54400">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet83"></div>
+		<div class="class-name">.flaticon-tablet83</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-outline-in-horizontal-position_54454">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet84"></div>
+		<div class="class-name">.flaticon-tablet84</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-outlined-tool-symbol_54457">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet85"></div>
+		<div class="class-name">.flaticon-tablet85</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-in-horizontal-position_54497">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tablet86"></div>
+		<div class="class-name">.flaticon-tablet86</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tablet-outline_54556">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tag45"></div>
+		<div class="class-name">.flaticon-tag45</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tag-black-tool-symbol_54278">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-telephone96"></div>
+		<div class="class-name">.flaticon-telephone96</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/telephone_54323">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-telephone97"></div>
+		<div class="class-name">.flaticon-telephone97</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/telephone_54612">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tie2"></div>
+		<div class="class-name">.flaticon-tie2</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tie-outline_54582">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-tie3"></div>
+		<div class="class-name">.flaticon-tie3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/tie-black-male-fashion-cloth-symbol_54660">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-triptych3"></div>
+		<div class="class-name">.flaticon-triptych3</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/triptych-paper_54251">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-twitter43"></div>
+		<div class="class-name">.flaticon-twitter43</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/twitter-logo-in-circular-black-button_54300">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-twitter44"></div>
+		<div class="class-name">.flaticon-twitter44</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/twitter-circular-button_54879">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-two312"></div>
+		<div class="class-name">.flaticon-two312</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/two-black-rectangular-speech-bubbles-interface-chat-symbol_54364">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-two314"></div>
+		<div class="class-name">.flaticon-two314</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/two-visualization-options-for-computer-devices_54384">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-two315"></div>
+		<div class="class-name">.flaticon-two315</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/two-glasses-for-drinks_54386">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-two321"></div>
+		<div class="class-name">.flaticon-two321</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/two-black-geometrical-shapes-symbol_54548">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-two324"></div>
+		<div class="class-name">.flaticon-two324</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/two-black-squares_54757">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-unlocked24"></div>
+		<div class="class-name">.flaticon-unlocked24</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/unlocked-black-square-padlock-tool-security-symbol_54210">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-unlocked25"></div>
+		<div class="class-name">.flaticon-unlocked25</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/unlocked-padlock_54387">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-up106"></div>
+		<div class="class-name">.flaticon-up106</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/up-arrow-in-black-circular-button_54608">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-up113"></div>
+		<div class="class-name">.flaticon-up113</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/up-arrow-circular-button_54939">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-upload88"></div>
+		<div class="class-name">.flaticon-upload88</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/upload-to-internet-cloud-interface-symbol_54396">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-upload90"></div>
+		<div class="class-name">.flaticon-upload90</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/upload-to-the-cloud_54514">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-upload93"></div>
+		<div class="class-name">.flaticon-upload93</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/upload-interface-symbol_54568">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-upload94"></div>
+		<div class="class-name">.flaticon-upload94</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/upload-to-the-cloud-dark-interface-symbol_54636">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-upload95"></div>
+		<div class="class-name">.flaticon-upload95</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/upload-to-internet-cloud-symbol_54673">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-upper7"></div>
+		<div class="class-name">.flaticon-upper7</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/upper-right-arrow-outlined-symbol_54285">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-video161"></div>
+		<div class="class-name">.flaticon-video161</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/video-camera-side-view-outlined-tool-symbol_54180">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-video162"></div>
+		<div class="class-name">.flaticon-video162</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/video-symbol-of-black-camera_54438">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-voice21"></div>
+		<div class="class-name">.flaticon-voice21</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/voice_54326">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-voice23"></div>
+		<div class="class-name">.flaticon-voice23</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/voice-microphone-outlined-interface-symbol_54857">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-whiteboard10"></div>
+		<div class="class-name">.flaticon-whiteboard10</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/whiteboard_54960">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-whiteboard8"></div>
+		<div class="class-name">.flaticon-whiteboard8</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/whiteboard-outline_54622">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-whiteboard9"></div>
+		<div class="class-name">.flaticon-whiteboard9</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/whiteboard-with-text-lines_54649">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-wine56"></div>
+		<div class="class-name">.flaticon-wine56</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/wine-glasses-black-couple_54264">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-write18"></div>
+		<div class="class-name">.flaticon-write18</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/write-a-note_54802">Linh Pham</a></div></div><div class="glyph">
+		<div class="glyph-icon flaticon-zoom57"></div>
+		<div class="class-name">.flaticon-zoom57</div><div class="author-name">Author: <a href="http://www.flaticon.com/free-icon/zoom-increasing-visualization-size-tool-interface-symbol_54305">Linh Pham</a></div></div></section>
+
+<section class="attribution">
+
+	<div class="usetitle">License and attribution:</div><div class="attrDiv">Font generated by <a href="http://www.flaticon.com">flaticon.com</a>
+ under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>. The authors are: <a href="http://linhpham.me/miu">Linh Pham</a>.</div><div class="usetitle">Copy the Attribution License:</div>
+
+<textarea onclick="this.focus();this.select();">Font generated by &lt;a href=&quot;http://www.flaticon.com&quot;&gt;flaticon.com&lt;/a&gt;
+ under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;CC BY&lt;/a&gt;. The authors are: &lt;a href=&quot;http://linhpham.me/miu&quot;&gt;Linh Pham&lt;/a&gt;.</textarea>
+
+</section>
+
+<section class="iconsuse">
+    	<div class="usetitle">Examples:</div>
+		<div class="image"><p>&lt;i class=&quot;flaticon-add138&quot;&gt;&lt;/i&gt; <i class="flaticon-add138"></i></p><p>&lt;i class=&quot;flaticon-add140&quot;&gt;&lt;/i&gt; <i class="flaticon-add140"></i></p><p>&lt;i class=&quot;flaticon-add142&quot;&gt;&lt;/i&gt; <i class="flaticon-add142"></i></p><p>&lt;i class=&quot;flaticon-add143&quot;&gt;&lt;/i&gt; <i class="flaticon-add143"></i></p><p>&lt;i class=&quot;flaticon-add144&quot;&gt;&lt;/i&gt; <i class="flaticon-add144"></i></p></div><div class="image"><p>&lt;span class=&quot;flaticon-add145&quot;&gt;&lt;/span&gt; <span class="flaticon-add145"></span></p><p>&lt;span class=&quot;flaticon-add147&quot;&gt;&lt;/span&gt; <span class="flaticon-add147"></span></p><p>&lt;span class=&quot;flaticon-add150&quot;&gt;&lt;/span&gt; <span class="flaticon-add150"></span></p><p>&lt;span class=&quot;flaticon-add151&quot;&gt;&lt;/span&gt; <span class="flaticon-add151"></span></p><p>&lt;span class=&quot;flaticon-add152&quot;&gt;&lt;/span&gt; <span class="flaticon-add152"></span></p></div><div class="image"><p>&lt;span class=&quot;flaticon-add153&quot;&gt;&lt;/span&gt; <span class="flaticon-add153"></span></p><p>&lt;i class=&quot;flaticon-add154&quot;&gt;&lt;/i&gt; <i class="flaticon-add154"></i></p><p>&lt;i class=&quot;flaticon-alarm30&quot;&gt;&lt;/i&gt; <i class="flaticon-alarm30"></i></p><p>&lt;i class=&quot;flaticon-arrow591&quot;&gt;&lt;/i&gt; <i class="flaticon-arrow591"></i></p><p>&lt;i class=&quot;flaticon-arrow594&quot;&gt;&lt;/i&gt; <i class="flaticon-arrow594"></i></p></div><div class="image"><p>&lt;span class=&quot;flaticon-attachment14&quot;&gt;&lt;/span&gt; <span class="flaticon-attachment14"></span></p><p>&lt;span class=&quot;flaticon-attachment16&quot;&gt;&lt;/span&gt; <span class="flaticon-attachment16"></span></p><p>&lt;span class=&quot;flaticon-audio47&quot;&gt;&lt;/span&gt; <span class="flaticon-audio47"></span></p><p>&lt;span class=&quot;flaticon-audio48&quot;&gt;&lt;/span&gt; <span class="flaticon-audio48"></span></p><p>&lt;span class=&quot;flaticon-back43&quot;&gt;&lt;/span&gt; <span class="flaticon-back43"></span></p></div><div class="image"></div>
+</section>
+<div id="footer">
+    <div>Generated by <a href="http://www.flaticon.com">flaticon.com</a>
+    </div>
+</div>
+	</body>
+</html>

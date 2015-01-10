@@ -8,7 +8,9 @@ require([
     'css!css_bootstrap/bootstrap.min.css',
     'css!css_bootstrap/paper.min.css',
     'css!css_bootstrap/roboto/font_roboto.css',
-    //'css!css_material_design/material.min.css'
+    'css!fonts/miu/flaticon.css'
+    
+
 ],
     function (Marionette) {
         window.App = new Backbone.Marionette.Application({
@@ -65,6 +67,7 @@ require([
                 { id: 'tab_1', name: 'Mapa de información', panel_class: 'tab_panel active', tab_class: 'tab_item active', options: {  } },
                 { id: 'tab_2', name: 'Mapa de datos', panel_class: 'tab_panel', tab_class: 'tab_item', options: {  } },
             ]);
+            $('#tab_2').show();
             App.execute('load', 'map', 'MapModule', {});
         });
         
@@ -72,11 +75,11 @@ require([
             App.execute('debug', 'MapModule.start event called.', 0);
             App.MapModule.add([
                 { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow' }},
-                //{ id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack' }}
+                { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack' }}
             ]);
 
             App.MapModule.init('map_1');
-            //App.MapModule.init('map_2');
+            App.MapModule.init('map_2');
             App.execute('load', 'stack', 'StackModule', {});
         });
         
@@ -87,7 +90,7 @@ require([
                 'stack_1',
                 '#panel_1',
                 [
-                { id: 'stack_1', class: 'stack_item', options: { }}
+                { id: 'stack_1', class: 'stack_item well', options: { }}
                 ]
             );
             App.StackModule.addchild('stack_1', [

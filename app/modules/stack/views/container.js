@@ -37,32 +37,28 @@ define([
             test: function(e) {
                 console.log(this.$el);
                 if (this.$el.hasClass('active')) {
-                    this.$el.velocity({
-                        width: 80,
-                        height: 80,
-                        bottom: -40,
-                        borderRadius: [ 80, "easeInSine"  ],
-                        backgroundColor: '#fff',
-                        backgroundColorAlpha: 1,
-                    }, {easing: [ 600, 35 ], duration: 1000 });
                     this.$el.removeClass('active');
+                    this.$el.velocity({
+                        width: 48,
+                        height: 48,
+                        bottom: 6,
+                        borderRadius: 5000,
+                        backgroundColor: '#fff',
+                        backgroundColorAlpha: 0,
+                    }, {easing: [ 600, 35 ], duration: 1400 });
+                    
                 }
                 else {
+                    this.$el.addClass('active')
                     this.$el.velocity({
-                        /*
-                        width: 80,
-                        height: 80,
-                        bottom: -40,
-                        borderRadius: [ 80, "easeInSine"  ]
-                        */
                         width: '100%',
                         height: '100%',
                         bottom: 0,
                         borderRadius: 0,
-                        backgroundColor: '#444',
-                        backgroundColorAlpha: 0.3,
-                    }, {easing: [ 600, 35 ], duration: 700 });
-                    this.$el.addClass('active');
+                        backgroundColor: '#fff',
+                        backgroundColorAlpha: 0,
+                    }, {easing: [ 600, 35 ], duration: 1200 });
+                    ;
                 }
                 
 

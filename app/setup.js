@@ -13,7 +13,7 @@ requirejs.config({
         'marionette': { deps: ['backbone'], exports:  ['Marionette']},
         'bootstrap': { deps: ['jquery'] },
         'material_design': { deps: ['bootstrap'] },
-
+            
         'app': { deps: ['marionette'] }
     },
     paths: {
@@ -36,7 +36,7 @@ requirejs.config({
         'modules': '../../app/modules',
         'models': '../../app/models',
         
-        //'fonts': '../../fonts'
+        'fonts': '../../libs/fonts'
     }
 });
 
