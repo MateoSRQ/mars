@@ -13,8 +13,9 @@ requirejs.config({
         'marionette': { deps: ['backbone'], exports:  ['Marionette']},
         'bootstrap': { deps: ['jquery'] },
         'material_design': { deps: ['bootstrap'] },
-            
-        'app': { deps: ['marionette'] }
+        'app': { deps: ['marionette'] },
+        'json3': { deps: [] },
+        'defiant': { deps: ['jquery'], exports: '' }
     },
     paths: {
         'jquery': '../jquery/jquery-2.1.1.min',
@@ -22,16 +23,14 @@ requirejs.config({
         'backbone': '../backbone/backbone-1.1.2.min',
         'backbone_relational': '../backbone/backbone.relational.min',
         'marionette': '../marionette/marionette-2.3.0.min',
-
+        'json3': '../json3/json3.min',
+        'defiant': '../defiant/defiant.min',
         
         'bootstrap': '../bootstrap/dist/js/bootstrap.min',
         'css_bootstrap': '../bootstrap/dist/css',
         'material_design': '../material_design/bootstrap-material-design-master/dist/js/material.min',
         'css_material_design': '../material_design/bootstrap-material-design-master/dist/css',
-        /*
-        
-        'css_font-awesome': '../font-awesome',
-        */
+
         'app': '../../app/app',
         'modules': '../../app/modules',
         'models': '../../app/models',

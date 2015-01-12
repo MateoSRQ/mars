@@ -55,8 +55,8 @@ define([
                         height: '100%',
                         bottom: 0,
                         borderRadius: 0,
-                        backgroundColor: '#fff',
-                        backgroundColorAlpha: 0,
+                        backgroundColor: '#444',
+                        backgroundColorAlpha: .3,
                     }, {easing: [ 600, 35 ], duration: 1200 });
                     ;
                 }

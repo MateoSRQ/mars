@@ -15,23 +15,25 @@ App.MapModule.on('before:start', function(options){
 
 requirejs.config({
     shim: {
-        'ol': { deps: [], exports: 'ol' }
+        'ol': { deps: [], exports: 'ol-debug' },
+        'd3': { deps: [], exports: 'd3' }
+  
     },
     paths: {
         'ol': '../../app/modules/map/libs/openlayers/build/ol', // change in production!
+        'd3': '../../app/modules/map/libs/d3/d3.min', 
         'css_ol': '../../app/modules/map/libs/openlayers/css/ol.css'
     }
 });
 
 require([
     'ol',
+    'd3',
     'modules/map/views/item',
     'modules/map/models/item',
     'css!modules/map/css/map.css',
-
-    
 ],
-    function(ol) {
+    function() {
         require([
         'modules/map/models/collection'
         ],   
@@ -56,7 +58,6 @@ require([
                         App.MapModule.views[item.get('id')] = new App.MapModule.ItemView({model: item});
                         item.get('options').region.show(App.MapModule.views[item.get('id')]);
                     });
-                    //App.MapModule.init();
                 };
                 
                 MapModule.remove = function(condition) {
@@ -73,29 +74,11 @@ require([
                     App.MapModule.views[id].init();
                 }
                 
-                /*
-                MapModule.init = function() {
-                    var mapHandler = new ol.Map({
-                        target: 'map_1',
-                        controls: ol.control.defaults({
-                            attributionOptions:  ({
-                              collapsible: false
-                            })
-                          }),
-    
-                        layers: [
-                            new ol.layer.Tile({
-                                source: new ol.source.MapQuest({layer: 'sat'}),
-                                name: 'tesla'
-                            })
-                        ],
-                        view: new ol.View({
-                            center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-                            zoom: 4,
-                        })
-                    });
+                MapModule.createLayer = function(id, type, layerName, options) {
+                    App.execute('debug', 'App.MapModule.createLayer called.', 0);
+                    // check check check
+                    App.MapModule.views[id].createLayer(type, layerName, options);
                 }
-                */
                 
             });
 

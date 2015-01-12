@@ -2,15 +2,13 @@
 console.clear();
 
 require([
-    //'backbone_relational',
     'marionette',
     'material_design',
+    'defiant',
     'css!css_bootstrap/bootstrap.min.css',
     'css!css_bootstrap/paper.min.css',
     'css!css_bootstrap/roboto/font_roboto.css',
     'css!fonts/miu/flaticon.css'
-    
-
 ],
     function (Marionette) {
         window.App = new Backbone.Marionette.Application({
@@ -81,11 +79,23 @@ require([
             App.MapModule.init('map_1');
             App.MapModule.init('map_2');
             App.execute('load', 'stack', 'StackModule', {});
+            /*
+            App.MapModule.createLayer('map_2', 'local_d3_json', 'd3layer', {
+                url: '../../mars/data/distritos_4326_1000x.json'
+            });
+            */
+            
+            App.MapModule.createLayer('map_1', 'local_json', 'local_json', {
+                url: '../../data/peru_distritos_3857_s100.topojson',
+                colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
+                center: [-75,-10.50],
+                zoom: 5
+            });
+            
         });
         
         App.vent.on('StackModule.start', function(options){
             App.execute('debug', 'StackModule.start event called.', 0);
-
             App.StackModule.add(
                 'stack_1',
                 '#panel_1',
@@ -105,15 +115,6 @@ require([
             ])
             
             App.StackModule.init('stack_1');
-            
-            /*
-            console.log(App);
-            console.log(App.StackModule);
-            console.log(App.StackModule.collections);
-            console.log(App.MapModule.collection);
-
-            App.StackModule.init('stack_1')
-            */
         });
         
         /* TAB RENDERED */
@@ -123,21 +124,13 @@ require([
 
         App.vent.on('App.StackModule.ContainerView.render', function(options){
             App.execute('debug', 'App.StackModule.ContainerView.render', 0);
-            console.log(options);
-            if (options.$el.attr('id') == 'stack_1') {
-                App.StackModule.addchild('stack_1', [
-                    { id: 'card_1'},
-                    { id: 'card_2' }
-                ]);                
-            }
+
         });
         
         require([
-
-         ], function() {
+        ], function() {
             App.start();
             require([
-
             ], function(){
                 App.execute('load', 'tab',   'TabModule', {id: 'tab_container', class: 'tab_container tabs-below'});
             })
