@@ -132,18 +132,12 @@ define([
                         'properties.IDDPTO',
                         'properties.value'
                     );
-                    //console.log(data);
+
                     var _features = topoJSONReader.readFeatures(data);
 
                     var quantile = d3.scale.quantile()
                     .domain(_.compact(_.map(_features, function(feature){ return feature.get('value'); })))
                     .range(options.colors);
-
-                    
-                    console.log('Q');
-                    console.log(_.compact(_.map(_features, function(feature){ return feature.get('value'); })))
-                    console.log(quantile.quantiles())
-                    console.log(options.colors)
 
                     var styleFunction = function(feature, resolution) {
                         return  [new ol.style.Style({
@@ -151,7 +145,7 @@ define([
                                 color: quantile(feature.get('value'))
                             }),
                             stroke: new ol.style.Stroke({
-                                color: '#319FD3',
+                                color: quantile(feature.get('value')), //'#319FD3',
                                 width: 0.5
                             })
                         })];

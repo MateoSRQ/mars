@@ -24,6 +24,9 @@ define([
             onRender: function(){
                 App.execute('debug', 'App.StackModule.ItemView.onRender event called.', 0);
                 var _options = this.model.get('options');
+                $('.card_container').perfectScrollbar({
+                    includePadding: true
+                });
                 App.TabModule.vent.trigger('App.StackModule.ItemView.onRender', this);
             },
         });

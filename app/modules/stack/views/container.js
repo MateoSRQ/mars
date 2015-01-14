@@ -29,9 +29,9 @@ define([
             
             onRender: function() {
                 App.execute('debug', 'App.StackModule.ContainerView.onRender function called.', 0);
+                //$('.card_container').perfectScrollbar();
 
-
-                App.StackModule.vent.trigger('App.StackModule.ContainerView.render', this);
+                
             },
             
             test: function(e) {
@@ -58,7 +58,7 @@ define([
                         backgroundColor: '#444',
                         backgroundColorAlpha: .3,
                     }, {easing: [ 600, 35 ], duration: 1200 });
-                    ;
+                    $('.card_container').perfectScrollbar('update');
                 }
                 
 
