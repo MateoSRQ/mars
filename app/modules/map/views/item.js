@@ -12,7 +12,7 @@ define([
                 this.$el.prop('class', this.model.get('class'));
             },
             events: {
-
+                'click .panel_button': 'panel_button_click'
             },
             attributes : function () {
                 return {
@@ -31,6 +31,11 @@ define([
                 App.MapModule.vent.trigger('App.MapModule.ItemView.render', this);
             },
             
+            panel_button_click: function (e) {
+                App.execute('debug', 'App.MapModule.ItemView.panel_button_click event called.', 0);
+                App.MapModule.vent.trigger('App.MapModule.ItemView.panel_button_click', this);
+            },
+            
             init: function() {
                 this.mapHandler = new ol.Map({
                     renderer: 'canvas',
@@ -42,10 +47,25 @@ define([
                       }),
 
                     layers: [
+                        
+                        /*
                         new ol.layer.Tile({
                             source: new ol.source.MapQuest({layer: 'osm'}),
                             name: 'tesla'
+                        }),
+                        */
+                        new ol.layer.Tile({
+                            source: new ol.source.XYZ({
+                                url: 'http://127.0.0.1/tileserver/mbtiles/geography-class/{z}/{x}/{y}.png',
+                                //extent: extent,
+                                minZoom: 6,
+                                maxZoom: 13,
+                                tilePixelRatio: 1
+                            })
                         })
+                        
+                        
+                        
                     ],
                     view: new ol.View({
                         center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
@@ -158,7 +178,6 @@ define([
                                 projection: 'EPSG:3857',
                                 features: _features
                             }),
-                                                        
                             style: function(feature, resolution) {
                                 return styleFunction(feature, resolution);
                             }
@@ -221,7 +240,6 @@ define([
                     self.mapHandler.addLayer(self.layers[layerName]);
                 });
             },
-
             
             _createMapQuestSatelliteLayer: function(layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView._createMapQuestSatelliteLayer function called.', 0);
@@ -260,10 +278,6 @@ define([
                     }
                 App.MapModule.vent.trigger('App.MapModule.ItemView.createLayer', this);
             }
-            
-            
-
-            
         });
     }
 );

@@ -135,7 +135,12 @@ require([
     
             App.vent.on('App.StackModule.ContainerView.render', function(options){
                 App.execute('debug', 'App.StackModule.ContainerView.render', 0);
-    
+            });
+            
+            App.vent.on('App.MapModule.ItemView.panel_button_click', function(options){
+                App.execute('debug', 'App.MapModule.ItemView.panel_button_click', 0);
+                console.log('xxx');
+                console.log(options);
             });
             
             require([

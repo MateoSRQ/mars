@@ -7,7 +7,7 @@ define([
             tagName: 'article',
             handler: null,
             events: {
-                'click': 'test'
+                //'click': 'test'
             },
             
             initialize: function(){
@@ -30,12 +30,9 @@ define([
             onRender: function() {
                 App.execute('debug', 'App.StackModule.ContainerView.onRender function called.', 0);
                 //$('.card_container').perfectScrollbar();
-
-                
             },
             
             test: function(e) {
-                console.log(this.$el);
                 if (this.$el.hasClass('active')) {
                     this.$el.removeClass('active');
                     this.$el.velocity({

@@ -21,7 +21,7 @@ article {
 	-ms-perspective: 600px;
 	-o-perspective: 600px;
 	perspective: 600px;
-    overflow: hidden;
+	overflow: hidden;
 
 }
 
@@ -46,8 +46,8 @@ section {
 }
 
 .card_container {
+	height: calc(100% - 42px);
 	width: 100%;
-	height: 100%;
 	background: #fff;
 	position: relative;
 	overflow:hidden;

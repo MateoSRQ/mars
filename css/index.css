@@ -29,8 +29,6 @@ body {
 }
 
 /* TABS */
-
-
 #app-container {
     width: 100%;
     height: calc(100% - 55px);
@@ -161,7 +159,7 @@ body {
 .panel_button {
     width: 44px;
     height: 44px;
-    pointer-events: none;
+    /*pointer-events: none;*/
     bottom: 8px;
     border-radius: 44px;
     left: 50%;

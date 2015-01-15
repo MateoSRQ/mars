@@ -102,6 +102,12 @@ require([
                     // dont forget to remove
                     */
                 };
+                
+                StackModule.switchState = function(id) {
+                    App.execute('debug', 'App.StackModule.ContainerView.render function called.', 0);
+                    // check if id is active
+                    this.views[id].test();
+                };
 
                 StackModule.vent.on('App.StackModule.ContainerView.render', function(options) {
                     App.execute('debug', 'App.StackModule.ContainerView.render function called.', 0);
