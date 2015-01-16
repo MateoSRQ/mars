@@ -104,19 +104,27 @@ require([
                 };
                 
                 StackModule.switchState = function(id) {
-                    App.execute('debug', 'App.StackModule.ContainerView.render function called.', 0);
+                    App.execute('debug', 'App.StackModule.switchState function called.', 0);
                     // check if id is active
                     this.views[id].test();
                 };
 
                 StackModule.vent.on('App.StackModule.ContainerView.render', function(options) {
                     App.execute('debug', 'App.StackModule.ContainerView.render function called.', 0);
-                   
                     App.vent.trigger('App.StackModule.ContainerView.render', options);
                 });
-            
+                
+                StackModule.vent.on('App.MapModule.ItemView.panel_button_click', function(options) {
+                    App.execute('debug', 'App.MapModule.ItemView.panel_button_click function called.', 0);
+                    //App.vent.trigger('App.StackModule.ContainerView.render', options);
+                    StackModule.switchState(options);
+                });                
+                
                 
             });
+            
+            
+            
 
             App.vent.trigger('StackModule.start');
         }

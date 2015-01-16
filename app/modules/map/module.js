@@ -79,12 +79,15 @@ require([
                     // check check check
                     App.MapModule.views[id].createLayer(type, layerName, options);
                 };
+                
+                /* Implementation-specific */
+    
+                
             });
             
             
             App.MapModule.vent.on('App.MapModule.ItemView.panel_button_click', function(options){
                 App.execute('debug', 'App.MapModule.createLayer called.', 0);
-                console.log(options);
                 App.vent.trigger('App.MapModule.ItemView.panel_button_click', options)
             });
             

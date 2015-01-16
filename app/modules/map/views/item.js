@@ -22,7 +22,8 @@ define([
             template: function(model) {
                 return _.template(item)({
                     panel_id: model.options.panel_id,
-                    panel_class: model.options.panel_class
+                    panel_class: model.options.panel_class,
+                    panel_target: model.options.panel_target
                 })
             },
             onRender: function(){
@@ -33,7 +34,7 @@ define([
             
             panel_button_click: function (e) {
                 App.execute('debug', 'App.MapModule.ItemView.panel_button_click event called.', 0);
-                App.MapModule.vent.trigger('App.MapModule.ItemView.panel_button_click', this);
+                App.MapModule.vent.trigger('App.MapModule.ItemView.panel_button_click', $(e.currentTarget).attr('rel'));
             },
             
             init: function() {
@@ -63,9 +64,6 @@ define([
                                 tilePixelRatio: 1
                             })
                         })
-                        
-                        
-                        
                     ],
                     view: new ol.View({
                         center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
@@ -91,13 +89,9 @@ define([
                     _dest = JSON.parse(dest);
                 }
                 eval('_desttree = _dest.' +  dest_root);
-                
-                
                 _.each(_desttree, function(item){
-
                     var _val = JSON.search(_source, '//data[IDDPTO="' + item.properties.IDDPTO + '"]');
                     _val = _val[0].VALUE;
-
                     item.properties.value = _val;
                 })
                 eval('_dest.' + dest_root + ' = _desttree');
@@ -228,8 +222,6 @@ define([
                         context.stroke();
                         return canvas[0][0];
                     };
-                    console.log('error')
-                    console.log(self.layers)
                     self.layers[layerName] = new ol.layer.Image({
                         source: new ol.source.ImageCanvas({
                             canvasFunction: canvasFunction,

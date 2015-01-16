@@ -83,8 +83,8 @@ require([
             App.vent.on('MapModule.start', function(options){
                 App.execute('debug', 'MapModule.start event called.', 0);
                 App.MapModule.add([
-                    { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow' }},
-                    { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack' }}
+                    { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow', panel_target: 'stack_1' }},
+                    { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2' }}
                 ]);
     
                 App.MapModule.init('map_1');
@@ -141,6 +141,7 @@ require([
                 App.execute('debug', 'App.MapModule.ItemView.panel_button_click', 0);
                 console.log('xxx');
                 console.log(options);
+                App.StackModule.vent.trigger('App.MapModule.ItemView.panel_button_click', options);
             });
             
             require([
