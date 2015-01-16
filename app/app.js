@@ -2,15 +2,10 @@
 console.clear();
 require([
     'marionette' 
-    
-    
 ], function(Marionette){
-
-    window.App = new Backbone.Marionette.Application({
-    });
+    window.App = new Backbone.Marionette.Application({});
 
     require([
-
         'tabmodel',
         'material_design',
         'defiant',
@@ -22,10 +17,6 @@ require([
         'css!css_scrollbar/perfect-scrollbar.min.css'
     ],
         function () {
-            console.log('App');
-            console.log(App);
-            
-            
             App.LayoutView = Backbone.Marionette.LayoutView.extend({
                 el: '#app-container',
                 template: '#app-template',
@@ -97,7 +88,8 @@ require([
                 */
                 
                 App.MapModule.createLayer('map_1', 'local_json', 'local_json', {
-                    url: '../../data/peru_distritos_3857_s100.topojson',
+                    map_url: '../../data/peru_distritos_3857_s100.topojson',
+                    data_url: '../../data/sample_data.json',
                     colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
                     center: [-75,-10.50],
                     zoom: 5
@@ -149,12 +141,10 @@ require([
                 App.start();
                 require([
                 ], function(){
-                    App.execute('load', 'tab',   'TabModule', {id: 'tab_container', class: 'tab_container tabs-below'});
+                    App.execute('load', 'tab', 'TabModule', {id: 'tab_container', class: 'tab_container tabs-below'});
                 })
             })
         }
     );
-
-
 });
 

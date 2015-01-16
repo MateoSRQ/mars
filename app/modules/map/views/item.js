@@ -48,7 +48,6 @@ define([
                       }),
 
                     layers: [
-                        
                         /*
                         new ol.layer.Tile({
                             source: new ol.source.MapQuest({layer: 'osm'}),
@@ -102,46 +101,16 @@ define([
                 App.execute('debug', 'App.MapModule.ItemView._createTopoJSONLayerfromLocal function called.', 0);
                 var self = this;
                 require([
-                    'text!' + options.url
-                ], function (urldata){
+                    'text!' + options.map_url,
+                    'text!' + options.data_url
+                ], function (mapdata, urldata){
                     var topoJSONReader = new ol.format.TopoJSON();
-                    
-                    var source = {
-                        'data': [
-                            {'IDDPTO': '01', 'VALUE': 500 },
-                            {'IDDPTO': '02', 'VALUE': 0 },
-                            {'IDDPTO': '03', 'VALUE': 0 },
-                            {'IDDPTO': '04', 'VALUE': 0 },
-                            {'IDDPTO': '05', 'VALUE': 0 },
-                            {'IDDPTO': '06', 'VALUE': 200 },
-                            {'IDDPTO': '07', 'VALUE': 0 },
-                            {'IDDPTO': '08', 'VALUE': 0 },
-                            {'IDDPTO': '09', 'VALUE': 0 },
-                            {'IDDPTO': '10', 'VALUE': 0 },
-                            {'IDDPTO': '11', 'VALUE': 300 },
-                            {'IDDPTO': '12', 'VALUE': 0 },
-                            {'IDDPTO': '13', 'VALUE': 0 },
-                            {'IDDPTO': '14', 'VALUE': 588 },
-                            {'IDDPTO': '15', 'VALUE': 0 },
-                            {'IDDPTO': '16', 'VALUE': 100 },
-                            {'IDDPTO': '17', 'VALUE': 0 },
-                            {'IDDPTO': '18', 'VALUE': 800 },
-                            {'IDDPTO': '19', 'VALUE': 0 },
-                            {'IDDPTO': '20', 'VALUE': 0 },
-                            {'IDDPTO': '21', 'VALUE': 400 },
-                            {'IDDPTO': '22', 'VALUE': 0 },
-                            {'IDDPTO': '23', 'VALUE': 0 },
-                            {'IDDPTO': '24', 'VALUE': 0 },
-                            {'IDDPTO': '25', 'VALUE': 1000 }
-                        ]
-                    };
-                    
                     var data = self._injectJSON(
-                        source,
+                        urldata,
                         null,
                         'IDDPTO',
                         'VALUE',
-                        urldata,
+                        mapdata,
                         'objects.distritos_3856_s100.geometries',
                         'properties.IDDPTO',
                         'properties.value'
