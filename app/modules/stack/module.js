@@ -21,12 +21,14 @@ requirejs.config({
         'bespoke':  { deps:[], exports: '' },
         'bespoke-classes':  { deps:['bespoke'], exports: '' },
         'bespoke-keys':  { deps:['bespoke'], exports: '' },
+        'bespoke-touch':  { deps:['bespoke'], exports: '' },
         'velocity': { deps: [] },
     },
     paths: {
         'bespoke': '../../app/modules/stack/libs/bespoke/dist/bespoke.min',
         'bespoke-classes': '../../app/modules/stack/libs/bespoke/dist/bespoke.classes.min',
         'bespoke-keys': '../../app/modules/stack/libs/bespoke/dist/bespoke.keys.min',
+        'bespoke-touch': '../../app/modules/stack/libs/bespoke/dist/bespoke.touch.min',
         'velocity': '../../app/modules/stack/libs/velocity/velocity.min'
     }
 });
@@ -35,12 +37,15 @@ require([
     'bespoke',
     'bespoke-classes',
     'bespoke-keys',
+    'bespoke-touch',
     'modules/stack/models/item',
     'modules/stack/views/item',
     'velocity',
     'css!modules/stack/css/stack.css',
 ],
-    function(bespoke, classes, keys) {
+    function(bespoke, classes, keys, touch) {
+        console.log('aaaaa');
+        console.log(touch)
         require([
             'modules/stack/models/collection',
             'modules/stack/views/container'
@@ -86,7 +91,7 @@ require([
                 
                 StackModule.init = function(id) {
                     App.execute('debug', 'App.StackModule.init function called.', 0);
-                    this.views[id].handler = bespoke.from('#' + id, [keys(), classes()]);
+                    this.views[id].handler = bespoke.from('#' + id, [keys(), classes(), touch()]);
                     console.log(this.views[id].handler);
                     App.vent.trigger('App.StackModule.init', this);
                 }
