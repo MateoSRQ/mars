@@ -79,10 +79,7 @@ require([
                     // check check check
                     App.MapModule.views[id].createLayer(type, layerName, options);
                 };
-                
-                /* Implementation-specific */
-    
-                
+
             });
             
             

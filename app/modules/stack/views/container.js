@@ -35,26 +35,39 @@ define([
             test: function(e) {
                 if (this.$el.hasClass('active')) {
                     this.$el.removeClass('active');
+
+                    
                     this.$el.velocity({
                         width: 48,
                         height: 48,
                         bottom: 6,
                         borderRadius: 5000,
-                        backgroundColor: '#fff',
+                        opcity: 0,
                         backgroundColorAlpha: 0,
                     }, {easing: [ 600, 35 ], duration: 1400 });
+
+
                     
                 }
                 else {
                     this.$el.addClass('active')
                     this.$el.velocity({
+                        bottom: '50%'
+                    }, {easing: [ 600, 35 ], duration: 500});
+                    
+                    this.$el.velocity({
                         width: '100%',
                         height: '100%',
                         bottom: 0,
                         borderRadius: 0,
-                        backgroundColor: '#444',
-                        backgroundColorAlpha: .3,
-                    }, {easing: [ 600, 35 ], duration: 1200 });
+                        //backgroundColor: '#fff',
+                        backgroundColorAlpha: 0,
+                    }, { duration: 200 });
+                    
+
+                    
+                    
+                    
                     $('.card_container').perfectScrollbar('update');
                 }
                 

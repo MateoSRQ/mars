@@ -16,7 +16,6 @@ define([
             },
             attributes : function () {
                 return {
-                    
                 };
             },
             template: function(model) {
@@ -48,12 +47,11 @@ define([
                       }),
 
                     layers: [
-                        /*
                         new ol.layer.Tile({
                             source: new ol.source.MapQuest({layer: 'osm'}),
                             name: 'tesla'
                         }),
-                        */
+                        
                         new ol.layer.Tile({
                             source: new ol.source.XYZ({
                                 url: 'http://127.0.0.1/tileserver/mbtiles/geography-class/{z}/{x}/{y}.png',
@@ -71,69 +69,37 @@ define([
                 });
             },
             
-            _injectJSON: function(source, source_root, source_key, source_value, dest, dest_root, dest_key, dest_value) {
-                App.execute('debug', 'App.MapModule.ItemView._injectJSON function called.', 0);
-                
-                var _source = null;
-                var _sourcetree = null;
-                var _dest = null;
-                var _desttree = null;
-                _source = source;
-                _dest = dest;
-                
-                if (typeof source !== 'object') {
-                    _source = JSON.parse(source);
-                }
-                if (typeof dest !== 'object') {
-                    _dest = JSON.parse(dest);
-                }
-                eval('_desttree = _dest.' +  dest_root);
-                _.each(_desttree, function(item){
-                    var _val = JSON.search(_source, '//data[IDDPTO="' + item.properties.IDDPTO + '"]');
-                    _val = _val[0].VALUE;
-                    item.properties.value = _val;
-                })
-                eval('_dest.' + dest_root + ' = _desttree');
-                return _dest;
-            },
-            
             _createTopoJSONLayerfromLocal: function(layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView._createTopoJSONLayerfromLocal function called.', 0);
                 var self = this;
                 require([
-                    'text!' + options.map_url,
-                    'text!' + options.data_url
-                ], function (mapdata, urldata){
-                    var topoJSONReader = new ol.format.TopoJSON();
-                    var data = self._injectJSON(
-                        urldata,
-                        null,
-                        'IDDPTO',
-                        'VALUE',
-                        mapdata,
-                        'objects.distritos_3856_s100.geometries',
-                        'properties.IDDPTO',
-                        'properties.value'
-                    );
-
-                    var _features = topoJSONReader.readFeatures(data);
-
+                ], function (){
+                    var urldata= null;
+                    $.ajax({
+                        dataType: "json",
+                        async: false,
+                        url: options.data_url,
+                        data: '',
+                        success: function(r) {
+                            urldata = r;
+                        }
+                    });
+                    var GeoJSONReader = new ol.format.GeoJSON();
+                    var _features = GeoJSONReader.readFeatures(urldata);
                     var quantile = d3.scale.quantile()
-                    .domain(_.compact(_.map(_features, function(feature){ return feature.get('value'); })))
+                    .domain(_.compact(_.map(_features, function(feature){ return feature.get('pia'); })))
                     .range(options.colors);
-
                     var styleFunction = function(feature, resolution) {
                         return  [new ol.style.Style({
                             fill: new ol.style.Fill({
-                                color: quantile(feature.get('value'))
+                                color: quantile(feature.get('pia'))
                             }),
                             stroke: new ol.style.Stroke({
-                                color: quantile(feature.get('value')), //'#319FD3',
-                                width: 0.5
+                                color: quantile(feature.get('pia')), //'#319FD3',
+                                width: 0.2
                             })
                         })];
                     };
-                    
                     self.layers[layerName] = {
                         layer: new ol.layer.Vector({
                             opacity: 0.5,

@@ -8,7 +8,6 @@ require([
     require([
         'tabmodel',
         'material_design',
-        'defiant',
         'scrollbar',
         'css!css_bootstrap/bootstrap.min.css',
         'css!css_bootstrap/paper.min.css',
@@ -88,8 +87,7 @@ require([
                 */
                 
                 App.MapModule.createLayer('map_1', 'local_json', 'local_json', {
-                    map_url: '../../data/peru_distritos_3857_s100.topojson',
-                    data_url: '../../data/sample_data.json',
+                    data_url: 'http://127.0.0.1/server/web/data/location?by=DEPARTAMENTO&dpto=01,02,03&pia=%3E100000000',
                     colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
                     center: [-75,-10.50],
                     zoom: 5
@@ -131,8 +129,6 @@ require([
             
             App.vent.on('App.MapModule.ItemView.panel_button_click', function(options){
                 App.execute('debug', 'App.MapModule.ItemView.panel_button_click', 0);
-                console.log('xxx');
-                console.log(options);
                 App.StackModule.vent.trigger('App.MapModule.ItemView.panel_button_click', options);
             });
             

@@ -127,9 +127,12 @@ body {
 
     background: transparent;
 
-    opacity: 1;
+
     pointer-events: all;
 }
+
+
+
 
 .card_scroll > .title {
     font-family: 'Roboto';
@@ -149,6 +152,8 @@ body {
     margin-top: 3px;
 
 }
+
+
 
 .stack_item {
     background: #fff !important;
