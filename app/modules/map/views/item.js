@@ -6,10 +6,13 @@ define([
     function(item){
         App.MapModule.ItemView  = Backbone.Marionette.ItemView.extend({
             tagName: 'div',
-            layers: [],
+            
             initialize: function(){
                 this.$el.prop('id', this.model.get('id'));
                 this.$el.prop('class', this.model.get('class'));
+                this.layers = [];
+                this.select =  null;
+                this.selectSingleClick = null;
             },
             events: {
                 'click .panel_button': 'panel_button_click'
@@ -37,84 +40,114 @@ define([
             },
             
             init: function() {
-                this.mapHandler = new ol.Map({
-                    renderer: 'canvas',
-                    target: this.model.get('id'),
-                    controls: ol.control.defaults({
-                        attributionOptions:  ({
-                          collapsible: false
-                        })
-                      }),
 
-                    layers: [
-                        new ol.layer.Tile({
-                            source: new ol.source.MapQuest({layer: 'osm'}),
-                            name: 'tesla'
-                        }),
-                        
-                        new ol.layer.Tile({
-                            source: new ol.source.XYZ({
-                                url: 'http://127.0.0.1/tileserver/mbtiles/geography-class/{z}/{x}/{y}.png',
-                                //extent: extent,
-                                minZoom: 6,
-                                maxZoom: 13,
-                                tilePixelRatio: 1
+                if (!this.mapHandler) {
+                    this.mapHandler = new ol.Map({
+                        renderer: 'canvas',
+                        target: this.model.get('id'),
+                        controls: ol.control.defaults({
+                            attributionOptions:  ({
+                              collapsible: false
                             })
+                          }),
+    
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.MapQuest({layer: 'osm'}),
+                                name: 'tesla'
+                            }),
+                            
+                            new ol.layer.Tile({
+                                source: new ol.source.XYZ({
+                                    url: 'http://127.0.0.1/tileserver/mbtiles/geography-class/{z}/{x}/{y}.png',
+                                    //extent: extent,
+                                    minZoom: 6,
+                                    maxZoom: 13,
+                                    tilePixelRatio: 1
+                                })
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.transform(this.model.get('options').center, 'EPSG:4326', 'EPSG:3857'),
+                            zoom: this.model.get('options').zoom,
                         })
-                    ],
-                    view: new ol.View({
-                        center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-                        zoom: 4,
-                    })
-                });
+                    });
+                }
             },
             
             _createTopoJSONLayerfromLocal: function(layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView._createTopoJSONLayerfromLocal function called.', 0);
-                var self = this;
-                require([
-                ], function (){
-                    var urldata= null;
-                    $.ajax({
-                        dataType: "json",
-                        async: false,
-                        url: options.data_url,
-                        data: '',
-                        success: function(r) {
-                            urldata = r;
-                        }
-                    });
-                    var GeoJSONReader = new ol.format.GeoJSON();
-                    var _features = GeoJSONReader.readFeatures(urldata);
-                    var quantile = d3.scale.quantile()
-                    .domain(_.compact(_.map(_features, function(feature){ return feature.get('pia'); })))
-                    .range(options.colors);
-                    var styleFunction = function(feature, resolution) {
+                if (this.layers[layerName] !== null) {
+                    var self = this;
+                    require([
+                    ], function (){
+                        var urldata= null;
+                        $.ajax({
+                            dataType: "json",
+                            async: false,
+                            url: options.data_url,
+                            data: '',
+                            success: function(r) {
+                                urldata = r;
+                            }
+                        });
+                        var GeoJSONReader = new ol.format.GeoJSON();
+                        var _features = GeoJSONReader.readFeatures(urldata);
+                        var quantile = d3.scale.quantile()
+                        .domain(_.compact(_.map(_features, function(feature){ return feature.get('pia'); })))
+                        .range(options.colors);
+                        var styleFunction = function(feature, resolution) {
+                            return  [new ol.style.Style({
+                                fill: new ol.style.Fill({
+                                    color: quantile(feature.get('pia'))
+                                }),
+                                stroke: new ol.style.Stroke({
+                                    color: quantile(feature.get('pia')), //'#319FD3',
+                                    width: 0.2
+                                })
+                            })];
+                        };
+
+                        self.layers[layerName] = {
+                            layer: new ol.layer.Vector({
+                                opacity: 0.5,
+                                source: new ol.source.Vector({
+                                    projection: 'EPSG:3857',
+                                    features: _features
+                                }),
+                                style: function(feature, resolution) {
+                                    return styleFunction(feature, resolution);
+                                }
+                            }),
+                            type: 'vector',
+                        };   
+                        self.mapHandler.addLayer(self.layers[layerName].layer);
+                    })
+                    /* check */
+                    var selectedStyleFunction = function(feature, resolution) {
                         return  [new ol.style.Style({
                             fill: new ol.style.Fill({
-                                color: quantile(feature.get('pia'))
+                                color: 'rgba(33,150,243,0.5)'
                             }),
                             stroke: new ol.style.Stroke({
-                                color: quantile(feature.get('pia')), //'#319FD3',
-                                width: 0.2
+                                color: 'rgba(33,150,243,0.7)',
+                                width: 0.5
                             })
                         })];
                     };
-                    self.layers[layerName] = {
-                        layer: new ol.layer.Vector({
-                            opacity: 0.5,
-                            source: new ol.source.Vector({
-                                projection: 'EPSG:3857',
-                                features: _features
-                            }),
-                            style: function(feature, resolution) {
-                                return styleFunction(feature, resolution);
-                            }
-                        }),
-                        type: 'vector',
-                    };   
-                    self.mapHandler.addLayer(self.layers[layerName].layer);
-                })                     
+                    
+                    
+                    this.selectSingleClick = new ol.interaction.Select({
+                        style: function(feature, resolution) {
+                            return selectedStyleFunction(feature, resolution);
+                        }    
+                    });
+                    this.mapHandler.addInteraction(this.selectSingleClick);
+                }
+                
+                
+                
+                
             },
             
             _createD3FromTopoJSON :function(layerName, options) {
@@ -189,7 +222,9 @@ define([
             
             createLayer: function(type, layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView.createLayer function called.', 0);
-                    switch(type) {
+                console.log(this.layers[layerName])
+                if (typeof this.layers[layerName] === 'undefined') {
+                   switch(type) {
                         case 'mapquest_sat':
                             this._createMapQuestSatelliteLayer(layerName, options);
                             break;
@@ -203,7 +238,12 @@ define([
                             // PUT ERROR
                             break;
                     }
-                App.MapModule.vent.trigger('App.MapModule.ItemView.createLayer', this);
+                    App.MapModule.vent.trigger('App.MapModule.ItemView.createLayer', this);
+                }
+                else {
+                    App.execute('debug', 'App.MapModule.ItemView.createLayer not used.', 0);
+                }
+
             }
         });
     }

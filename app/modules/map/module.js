@@ -75,6 +75,7 @@ require([
                 };
                 
                 MapModule.createLayer = function(id, type, layerName, options) {
+                    
                     App.execute('debug', 'App.MapModule.createLayer called.', 0);
                     // check check check
                     App.MapModule.views[id].createLayer(type, layerName, options);

@@ -75,24 +75,13 @@ require([
                 
                 App.MapModule.add([
                 
-                    { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow', panel_target: 'stack_1' }},
-                    { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2' }},
-                    { id: 'map_3', class: 'map_item', options: { region: App.TabModule.manager.get('tab_3'), panel_id: 'panel_3', panel_class: 'panel_stack', panel_target: 'stack_3' }}
+                    { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow', panel_target: 'stack_1', center: [-75,-10.50], zoom: 5 }},
+                    { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2', center: [-75,-10.50], zoom: 5  }},
+                    { id: 'map_3', class: 'map_item', options: { region: App.TabModule.manager.get('tab_3'), panel_id: 'panel_3', panel_class: 'panel_stack', panel_target: 'stack_3', center: [-75,-10.50], zoom: 5  }}
                 ]);
-                
-                $('#tab_2').addClass('active');
-                $('#tab_3').addClass('active');
+
                 
                 App.MapModule.init('map_1');
-                App.MapModule.init('map_2');
-                App.MapModule.init('map_3');
-                
-                $('#tab_2').removeClass('active');
-                $('#tab_3').removeClass('active');   
-                
-                App.execute('load', 'stack', 'StackModule', {});
-            
-                    
                 App.MapModule.createLayer('map_1', 'local_json', 'local_json', {
                     data_url: 'http://127.0.0.1/server/web/data/location?by=DEPARTAMENTO',
                     colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
@@ -100,19 +89,9 @@ require([
                     zoom: 5
                 });
                 
-                App.MapModule.createLayer('map_2', 'local_json', 'local_json', {
-                    data_url: 'http://127.0.0.1/server/web/data/location?by=PROVINCIA',
-                    colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
-                    center: [-75,-10.50],
-                    zoom: 5
-                });
-                
-                App.MapModule.createLayer('map_3', 'local_json', 'local_json', {
-                    data_url: 'http://127.0.0.1/server/web/data/location?by=DISTRITO',
-                    colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
-                    center: [-75,-10.50],
-                    zoom: 5
-                });
+                App.execute('load', 'stack', 'StackModule', {});
+
+
                
             });
             
@@ -158,20 +137,31 @@ require([
             // TAB HEADER CLICKED
             App.vent.on('App.TabModule.HeaderItemView.header_item_click', function(options){
                 App.execute('debug', 'App.TabModule.HeaderItemView.header_item_click', 0);
-                console.log('yyyy');
+
                 switch (options.model.get('id')) {
                     
                     case 'tab_2':
-                        //App.MapModule.add([
-                        
-                            //{ id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow', panel_target: 'stack_1' }},
-                            //{ id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2' }},
-                            //{ id: 'map_3', class: 'map_item', options: { region: App.TabModule.manager.get('tab_3'), panel_id: 'panel_3', panel_class: 'panel_stack', panel_target: 'stack_3' }}
-                        //]);
-                        //App.MapModule.init('map_2');
+                        $('#tab_2').addClass('active');
+                        App.MapModule.init('map_2');
+                        App.MapModule.createLayer('map_2', 'local_json', 'local_json', {
+                            data_url: 'http://127.0.0.1/server/web/data/location?by=PROVINCIA',
+                            colors: ['#ffffcc','#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026'],
+                            center: [-75,-10.50],
+                            zoom: 7
+                        });
+                    break;
+                case 'tab_3':
+                        $('#tab_3').addClass('active');
+                        App.MapModule.init('map_3');
+                        App.MapModule.createLayer('map_3', 'local_json', 'local_json', {
+                            data_url: 'http://127.0.0.1/server/web/data/location?by=DISTRITO',
+                            colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
+                            center: [-75,-10.50],
+                            zoom: 9
+                        });
                     break;
                 }
-
+//
             });            
             
 
