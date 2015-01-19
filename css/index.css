@@ -3,7 +3,6 @@ html, body {
     height: 100%;
     background: #fff;
     overflow: hidden;
-
 }
 
 body {
@@ -65,7 +64,6 @@ body {
 .tab_panel {
     width: 100%;
     height: 100%;
-
 }
 
 .nav-tabs {
@@ -80,16 +78,12 @@ body {
 }
 
 .nav-tabs>li>a:hover {
-    box-shadow: inset 0 2px 0 #2196f3 !important;
-    
+    box-shadow: inset 0 2px 0 #2196f3 !important; 
 }
-
 
 .nav-tabs>li.active>a {
     box-shadow: inset 0 2px 0 #2196f3 !important;
 }
-
-
 
 /* MAP */
 .map_item {
@@ -110,11 +104,6 @@ body {
 }
 
 .stack_container {
-    /*
-    width: 100%;
-    height: calc(100%);
-    */
-    
     width: 48px;
     height: 48px;
     bottom: 6px;
@@ -122,17 +111,9 @@ body {
     left: 50%;
     transform: translateX(-50%);   
     position: absolute;
-
-
-
     background: transparent;
-
-
     pointer-events: all;
 }
-
-
-
 
 .card_scroll > .title {
     font-family: 'Roboto';
@@ -152,8 +133,6 @@ body {
     margin-top: 3px;
 
 }
-
-
 
 .stack_item {
     background: #fff !important;
@@ -177,7 +156,8 @@ body {
 .panel_button div {
     color: #fff;
     margin-left: -8px;
-    margin-top: -0px;
+    margin-top: 4px;
+    cursor: pointer;
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {

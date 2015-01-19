@@ -27,8 +27,6 @@ require([
     'modules/tab/views/panel_item',
     'modules/tab/views/container',
     'modules/tab/models/item',
-    
-    //'css!modules/window/css/window.css'
 ],
     function() {
         require([
@@ -76,6 +74,11 @@ require([
             App.TabModule.vent.on('App.TabModule.PanelItemView.render', function(options){
                 App.execute('debug', 'App.TabModule.PanelItemView.render function called.', 0);
                 App.vent.trigger('App.TabModule.PanelItemView.render', options);
+            });
+
+            App.TabModule.vent.on('App.TabModule.HeaderItemView.header_item_click', function(options){
+                App.execute('debug', 'App.TabModule.HeaderItemView.header_item_click function called.', 0);
+                App.vent.trigger('App.TabModule.HeaderItemView.header_item_click', options);
             });
             
             App.vent.trigger('TabModule.start');

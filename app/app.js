@@ -6,7 +6,6 @@ require([
     window.App = new Backbone.Marionette.Application({});
 
     require([
-        'tabmodel',
         'material_design',
         'scrollbar',
         'css!css_bootstrap/bootstrap.min.css',
@@ -63,40 +62,64 @@ require([
     
             App.vent.on('TabModule.start', function(options){
                 App.execute('debug', 'TabModule.start event called.', 0);
-                App.TabModule.add(
-                    App.Tabs.models
-                );
-                $('#tab_2').show();
+                App.TabModule.add([
+                    { id: 'tab_1', name: 'Mapa departamental', panel_class: 'tab_panel active', tab_class: 'tab_item active', options: {  } },
+                    { id: 'tab_2', name: 'Mapa provincial',    panel_class: 'tab_panel',        tab_class: 'tab_item',        options: {  } },
+                    { id: 'tab_3', name: 'Mapa distrital',     panel_class: 'tab_panel',        tab_class: 'tab_item',        options: {  } }
+                ]);
                 App.execute('load', 'map', 'MapModule', {});
             });
             
             App.vent.on('MapModule.start', function(options){
                 App.execute('debug', 'MapModule.start event called.', 0);
+                
                 App.MapModule.add([
+                
                     { id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow', panel_target: 'stack_1' }},
-                    { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2' }}
+                    { id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2' }},
+                    { id: 'map_3', class: 'map_item', options: { region: App.TabModule.manager.get('tab_3'), panel_id: 'panel_3', panel_class: 'panel_stack', panel_target: 'stack_3' }}
                 ]);
-    
+                
+                $('#tab_2').addClass('active');
+                $('#tab_3').addClass('active');
+                
                 App.MapModule.init('map_1');
                 App.MapModule.init('map_2');
-                App.execute('load', 'stack', 'StackModule', {});
-                /*
-                App.MapModule.createLayer('map_2', 'local_d3_json', 'd3layer', {
-                    url: '../../mars/data/distritos_4326_1000x.json'
-                });
-                */
+                App.MapModule.init('map_3');
                 
+                $('#tab_2').removeClass('active');
+                $('#tab_3').removeClass('active');   
+                
+                App.execute('load', 'stack', 'StackModule', {});
+            
+                    
                 App.MapModule.createLayer('map_1', 'local_json', 'local_json', {
-                    data_url: 'http://127.0.0.1/server/web/data/location?by=DEPARTAMENTO&dpto=01,02,03&pia=%3E100000000',
+                    data_url: 'http://127.0.0.1/server/web/data/location?by=DEPARTAMENTO',
                     colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
                     center: [-75,-10.50],
                     zoom: 5
                 });
                 
+                App.MapModule.createLayer('map_2', 'local_json', 'local_json', {
+                    data_url: 'http://127.0.0.1/server/web/data/location?by=PROVINCIA',
+                    colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
+                    center: [-75,-10.50],
+                    zoom: 5
+                });
+                
+                App.MapModule.createLayer('map_3', 'local_json', 'local_json', {
+                    data_url: 'http://127.0.0.1/server/web/data/location?by=DISTRITO',
+                    colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
+                    center: [-75,-10.50],
+                    zoom: 5
+                });
+               
             });
             
             App.vent.on('StackModule.start', function(options){
                 App.execute('debug', 'StackModule.start event called.', 0);
+                
+                
                 App.StackModule.add(
                     'stack_1',
                     '#panel_1',
@@ -131,6 +154,28 @@ require([
                 App.execute('debug', 'App.MapModule.ItemView.panel_button_click', 0);
                 App.StackModule.vent.trigger('App.MapModule.ItemView.panel_button_click', options);
             });
+            
+            // TAB HEADER CLICKED
+            App.vent.on('App.TabModule.HeaderItemView.header_item_click', function(options){
+                App.execute('debug', 'App.TabModule.HeaderItemView.header_item_click', 0);
+                console.log('yyyy');
+                switch (options.model.get('id')) {
+                    
+                    case 'tab_2':
+                        //App.MapModule.add([
+                        
+                            //{ id: 'map_1', class: 'map_item', options: { region: App.TabModule.manager.get('tab_1'), panel_id: 'panel_1', panel_class: 'panel_stack coverflow', panel_target: 'stack_1' }},
+                            //{ id: 'map_2', class: 'map_item', options: { region: App.TabModule.manager.get('tab_2'), panel_id: 'panel_2', panel_class: 'panel_stack', panel_target: 'stack_2' }},
+                            //{ id: 'map_3', class: 'map_item', options: { region: App.TabModule.manager.get('tab_3'), panel_id: 'panel_3', panel_class: 'panel_stack', panel_target: 'stack_3' }}
+                        //]);
+                        //App.MapModule.init('map_2');
+                    break;
+                }
+
+            });            
+            
+
+            
             
             require([
             ], function() {

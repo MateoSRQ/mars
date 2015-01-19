@@ -11,10 +11,11 @@ define([
                 this.$el.prop('class', this.model.get('tab_class'));
             },
             events: {
-
+                'click': 'header_item_click'
             },
             attributes : function () {
                 return {
+                    'rel': this.model.get('id')
                 };
             },
             template: function(model) {
@@ -30,6 +31,14 @@ define([
                 var _options = this.model.get('options');
                 App.TabModule.vent.trigger('HeaderItemView.render', this);
             },
+            
+            header_item_click: function(e) {
+                App.execute('debug', 'App.TabModule.HeaderItemView.header_item_click event called.', 0);
+                //console.log(e);
+                App.TabModule.vent.trigger('App.TabModule.HeaderItemView.header_item_click', this);
+            }
+            
+            
         });
     }
 );
