@@ -110,7 +110,7 @@ define([
 
                         self.layers[layerName] = {
                             layer: new ol.layer.Vector({
-                                opacity: 0.5,
+                                opacity: 0.7,
                                 source: new ol.source.Vector({
                                     projection: 'EPSG:3857',
                                     features: _features
@@ -127,7 +127,7 @@ define([
                     var selectedStyleFunction = function(feature, resolution) {
                         return  [new ol.style.Style({
                             fill: new ol.style.Fill({
-                                color: 'rgba(33,150,243,0.5)'
+                                color: 'rgba(33,150,243,0.8)'
                             }),
                             stroke: new ol.style.Stroke({
                                 color: 'rgba(33,150,243,0.7)',
