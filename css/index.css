@@ -92,6 +92,12 @@ body {
     position: relative;
 }
 
+
+.popover {
+    width: 350px !important;
+}
+
+
 /* TEST */
 .panel_stack {
     position: absolute;

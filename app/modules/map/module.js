@@ -15,12 +15,12 @@ App.MapModule.on('before:start', function(options){
 
 requirejs.config({
     shim: {
-        'ol': { deps: [], exports: 'ol-debug' },
+        'ol': { deps: [], exports: 'ol' },
         'd3': { deps: [], exports: 'd3' }
   
     },
     paths: {
-        'ol': '../../app/modules/map/libs/openlayers/build/ol', // change in production!
+        'ol': '../../app/modules/map/libs/openlayers/build/ol-debug', // change in production!
         'd3': '../../app/modules/map/libs/d3/d3.min', 
         'css_ol': '../../app/modules/map/libs/openlayers/css/ol.css'
     }
@@ -29,12 +29,15 @@ requirejs.config({
 require([
     'ol',
     'd3',
-    'modules/map/views/item',
     'modules/map/models/item',
     'css!modules/map/css/map.css',
 ],
-    function() {
+    function(ol) {
+
+        
+        
         require([
+        'modules/map/views/item',
         'modules/map/models/collection'
         ],   
         function () {

@@ -83,8 +83,9 @@ require([
                 
                 App.MapModule.init('map_1');
                 App.MapModule.createLayer('map_1', 'local_json', 'local_json', {
-                    data_url: 'http://127.0.0.1/server/web/data/location?by=DEPARTAMENTO',
-                    colors: ['#a6cee3','#1f78b4','#b2df8a','#33a02c'],
+                    data_url: 'http://127.0.0.1/data/test.geojson',
+                    colors: ['#ffffcc','#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026'],
+                            
                     center: [-75,-10.50],
                     zoom: 5
                 });
@@ -144,7 +145,7 @@ require([
                         $('#tab_2').addClass('active');
                         App.MapModule.init('map_2');
                         App.MapModule.createLayer('map_2', 'local_json', 'local_json', {
-                            data_url: 'http://127.0.0.1/server/web/data/location?by=PROVINCIA',
+                            data_url: 'http://127.0.0.1/server/web/data/location?by=PROVINCIA&prov=0101,0102,0103',
                             colors: ['#ffffcc','#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026'],
                             center: [-75,-10.50],
                             zoom: 7

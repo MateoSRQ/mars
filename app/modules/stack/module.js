@@ -44,8 +44,6 @@ require([
     'css!modules/stack/css/stack.css',
 ],
     function(bespoke, classes, keys, touch) {
-        console.log('aaaaa');
-        console.log(touch)
         require([
             'modules/stack/models/collection',
             'modules/stack/views/container'

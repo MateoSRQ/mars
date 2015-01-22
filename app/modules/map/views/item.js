@@ -12,6 +12,7 @@ define([
                 this.$el.prop('class', this.model.get('class'));
                 this.layers = [];
                 this.select =  null;
+                this.popup = null;
                 this.selectSingleClick = null;
             },
             events: {
@@ -56,7 +57,7 @@ define([
                                 source: new ol.source.MapQuest({layer: 'osm'}),
                                 name: 'tesla'
                             }),
-                            
+                            /*
                             new ol.layer.Tile({
                                 source: new ol.source.XYZ({
                                     url: 'http://127.0.0.1/tileserver/mbtiles/geography-class/{z}/{x}/{y}.png',
@@ -66,12 +67,25 @@ define([
                                     tilePixelRatio: 1
                                 })
                             })
+                            */
                         ],
                         view: new ol.View({
                             center: ol.proj.transform(this.model.get('options').center, 'EPSG:4326', 'EPSG:3857'),
                             zoom: this.model.get('options').zoom,
                         })
                     });
+                    
+                    // Popup showing the position the user clicked
+                    this.popup = new ol.Overlay({
+                        element: document.getElementById('popup')
+                    });
+                    this.mapHandler.addOverlay(this.popup);                    
+                    
+                    // demo
+                    var self = this;
+                    this.mapHandler.on('click', function(evt) {
+                      self.clicked = evt.coordinate;
+                    });                
                 }
             },
             
@@ -96,16 +110,35 @@ define([
                         var quantile = d3.scale.quantile()
                         .domain(_.compact(_.map(_features, function(feature){ return feature.get('pia'); })))
                         .range(options.colors);
-                        var styleFunction = function(feature, resolution) {
-                            return  [new ol.style.Style({
-                                fill: new ol.style.Fill({
-                                    color: quantile(feature.get('pia'))
+                        
+                        var nn = function(feature, resolution) {
+                            return new ol.style.Text({
+                                text: feature.get('nombre'),
+                                font: '0.95em Roboto, sans-serif',
+                                fill: new ol.style.Stroke({
+                                    color: '#000',
+                                    width: 6
                                 }),
                                 stroke: new ol.style.Stroke({
-                                    color: quantile(feature.get('pia')), //'#319FD3',
-                                    width: 0.2
+                                    color: 'white',
+                                    width: 2
+                                })                                      
+                            });
+                        }
+                        
+                        var styleFunction = function(feature, resolution) {
+                            return  [
+                                new ol.style.Style({
+                                    fill: new ol.style.Fill({
+                                        color: quantile(feature.get('pia'))
+                                    }),
+                                    stroke: new ol.style.Stroke({
+                                        color: quantile(feature.get('pia')), //'#319FD3',
+                                        width: 0.2
+                                    }),
+                                    text: nn(feature, resolution)
                                 })
-                            })];
+                            ];
                         };
 
                         self.layers[layerName] = {
@@ -120,14 +153,17 @@ define([
                                 }
                             }),
                             type: 'vector',
-                        };   
-                        self.mapHandler.addLayer(self.layers[layerName].layer);
+                        };
+                        
+
+                        
+                    self.mapHandler.addLayer(self.layers[layerName].layer);
                     })
                     /* check */
                     var selectedStyleFunction = function(feature, resolution) {
                         return  [new ol.style.Style({
                             fill: new ol.style.Fill({
-                                color: 'rgba(33,150,243,0.8)'
+                                color: 'rgba(33,150,243,0.1)'
                             }),
                             stroke: new ol.style.Stroke({
                                 color: 'rgba(33,150,243,0.7)',
@@ -138,12 +174,34 @@ define([
                     
                     
                     this.selectSingleClick = new ol.interaction.Select({
-                        style: function(feature, resolution) {
-                            return selectedStyleFunction(feature, resolution);
-                        }    
                     });
+                    var selected_features = this.selectSingleClick.getFeatures();
+                    
+                    selected_features.on('add', function(f){
+                        var element = self.popup.getElement();
+                        var coordinate = self.clicked;
+                        var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(
+                            coordinate, 'EPSG:3857', 'EPSG:3857'));
+                        console.log(coordinate);
+                        console.log(hdms);
+                        
+                        $(element).popover('destroy');
+                        self.popup.setPosition(coordinate);
+                        // the keys are quoted to prevent renaming in ADVANCED mode.
+                        $(element).popover({
+                            'placement': 'top',
+                            'animation': false,
+                            'html': true,
+                            'content': '<p>' + f.element.get('nombre') + '</p>',
+                        });
+                        $(element).popover('show');
+                                                
+                        
+                        
+                    })
+                    
                     this.mapHandler.addInteraction(this.selectSingleClick);
-                }
+                    }
                 
                 
                 

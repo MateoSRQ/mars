@@ -3565,7 +3565,7 @@ goog.asserts.AssertionError.prototype.name = 'AssertionError';
  * The default error handler.
  * @param {!goog.asserts.AssertionError} e The exception to be handled.
  */
-goog.asserts.DEFAULT_ERROR_HANDLER = function(e) { throw e; };
+goog.asserts.DEFAULT_ERROR_HANDLER = function(e) { return true; };
 
 
 /**
@@ -13106,7 +13106,7 @@ ol.coordinate.squaredDistanceToSegment = function(coordinate, segment) {
  *
  *     var coord = [7.85, 47.983333];
  *     var out = ol.coordinate.toStringHDMS(coord);
- *     // out is now '47° 59′ 0″ N 7° 51′ 0″ E'
+ *     // out is now '47Â° 59â€² 0â€³ N 7Â° 51â€² 0â€³ E'
  *
  * @param {ol.Coordinate|undefined} coordinate Coordinate.
  * @return {string} Hemisphere, degrees, minutes and seconds.
@@ -19268,7 +19268,7 @@ ol.tilecoord.createFromQuadKey = function(quadKey) {
 
 
 /**
- * @param {string} str String that follows pattern “z/x/y” where x, y and z are
+ * @param {string} str String that follows pattern â€œz/x/yâ€ where x, y and z are
  *   numbers.
  * @return {ol.TileCoord} Tile coord.
  */
@@ -65455,7 +65455,7 @@ goog.async.throwException = function(exception) {
 
 /**
  * Fires the provided callbacks as soon as possible after the current JS
- * execution context. setTimeout(…, 0) always takes at least 5ms for legacy
+ * execution context. setTimeout(â€¦, 0) always takes at least 5ms for legacy
  * reasons.
  *
  * This will not schedule the callback as a microtask (i.e. a task that can
@@ -90344,7 +90344,7 @@ ol.interaction.Modify.prototype.handleFeatureRemove_ = function(evt) {
   for (i = nodesToRemove.length - 1; i >= 0; --i) {
     rBush.remove(nodesToRemove[i]);
   }
-  // There remains only vertexFeature…
+  // There remains only vertexFeatureâ€¦
   if (!goog.isNull(this.vertexFeature_) &&
       this.features_.getLength() === 0) {
     this.overlay_.removeFeature(this.vertexFeature_);
@@ -97053,7 +97053,7 @@ ol.source.ImageWMS.prototype.getRequestUrl_ =
 
 
 /**
- * Return the URL used for this WMS source.
+ * Return the URLÂ used for this WMSÂ source.
  * @return {string|undefined} URL.
  * @api stable
  */
@@ -98461,7 +98461,7 @@ ol.source.TileWMS.prototype.getTilePixelSize =
 
 
 /**
- * Return the URLs used for this WMS source.
+ * Return the URLs used for this WMSÂ source.
  * @return {!Array.<string>} URLs.
  * @api stable
  */
@@ -98761,8 +98761,8 @@ goog.require('ol.tilegrid.WMTS');
  * @api
  */
 ol.source.WMTSRequestEncoding = {
-  KVP: 'KVP',  // see spec §8
-  REST: 'REST' // see spec §10
+  KVP: 'KVP',  // see spec Â§8
+  REST: 'REST' // see spec Â§10
 };
 
 
