@@ -27,6 +27,8 @@ define([
                 };
             },
             
+
+            
             onRender: function() {
                 App.execute('debug', 'App.StackModule.ContainerView.onRender function called.', 0);
                 //$('.card_container').perfectScrollbar();
@@ -68,7 +70,7 @@ define([
                     
                     
                     
-                    $('.card_container').perfectScrollbar('update');
+                    //$('.card_container').perfectScrollbar('update');
                 }
                 
 

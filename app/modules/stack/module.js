@@ -40,6 +40,7 @@ require([
     'bespoke-touch',
     'modules/stack/models/item',
     'modules/stack/views/item',
+    'modules/stack/views/item1',
     'velocity',
     'css!modules/stack/css/stack.css',
 ],
@@ -69,22 +70,33 @@ require([
                     if (typeof StackModule.collections[id] === 'undefined') {
                         StackModule.collections[id] = new App.StackModule.CollectionModel();
                         this.manager.addRegion(id, dom);
-                        
                     }
                     this.views[id] = new App.StackModule.ContainerView({id: id, class: 'stack_container', collection: this.collections[id]});
                     this.manager.get(id).show(this.views[id]);
                 };
+
                 
                 StackModule.addchild = function(id, models) {
                     App.execute('debug', 'App.StackModule.addchild function called.', 0);
-                    console.log(this.collections[id])
-                    this.collections[id].add(models);
+                    var self = this;
+                    _.each(models, function(model){
+                        self.collections[id].add(model);
+                    })
+                    
+                    //this.collections[id].add(models);
                     if (typeof this.collections[id] === 'undefined') {
                         console.log('I am an error')
                     }
                     else {
                         this.collections[id].add(models);
                     }
+                }
+                
+                StackModule.getRegion = function(id, modelid, region) {
+                    var model = this.views[id].collection.findWhere({'id': modelid});
+                    return this.views[id].children.findByModel(model).regionManager.get(region);
+                    //console.log(this.views[id].children.findByModel(model))
+                    //return this.views[id].get(region);
                 }
                 
                 StackModule.init = function(id) {

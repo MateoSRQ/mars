@@ -8,6 +8,8 @@ require([
     require([
         'material_design',
         'scrollbar',
+        'numeral',
+        'numeral_language',
         'css!css_bootstrap/bootstrap.min.css',
         'css!css_bootstrap/paper.min.css',
         'css!css_bootstrap/roboto/font_roboto.css',
@@ -116,7 +118,12 @@ require([
                     { id: 'page_1_6' },
                     { id: 'page_1_7' },
                     { id: 'page_1_8' },
-                ])
+                ]);
+                
+                var region = App.StackModule.getRegion('stack_1', 'page_1_1', 'headerRegion');
+                console.log('eoe eoa')
+                console.log(region);
+                region.show(new App.StackModule.MyView())
                 
                 App.StackModule.init('stack_1');
             });

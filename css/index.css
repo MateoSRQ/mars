@@ -97,6 +97,15 @@ body {
     width: 350px !important;
 }
 
+.popover-content div {
+    font-size: 14pt;
+}
+
+.popover-content p {
+    font-size: 10pt;
+    margin-bottom: 2px !important;
+    line-height: 10pt !important;
+}
 
 /* TEST */
 .panel_stack {

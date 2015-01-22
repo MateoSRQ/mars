@@ -111,10 +111,15 @@ define([
                         .domain(_.compact(_.map(_features, function(feature){ return feature.get('pia'); })))
                         .range(options.colors);
                         
+                        App.camelCase = function(str) {
+                            return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+                        }
+                        
                         var nn = function(feature, resolution) {
                             return new ol.style.Text({
-                                text: feature.get('nombre'),
-                                font: '0.95em Roboto, sans-serif',
+                                text: App.camelCase(feature.get('nombre')),
+                                font: ' bold 13px Roboto',
+                                
                                 fill: new ol.style.Stroke({
                                     color: '#000',
                                     width: 6
@@ -178,13 +183,9 @@ define([
                     var selected_features = this.selectSingleClick.getFeatures();
                     
                     selected_features.on('add', function(f){
+                        numeral.language('fr');
                         var element = self.popup.getElement();
                         var coordinate = self.clicked;
-                        var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(
-                            coordinate, 'EPSG:3857', 'EPSG:3857'));
-                        console.log(coordinate);
-                        console.log(hdms);
-                        
                         $(element).popover('destroy');
                         self.popup.setPosition(coordinate);
                         // the keys are quoted to prevent renaming in ADVANCED mode.
@@ -192,20 +193,14 @@ define([
                             'placement': 'top',
                             'animation': false,
                             'html': true,
-                            'content': '<p>' + f.element.get('nombre') + '</p>',
+                            'content': '<div>' + App.camelCase(f.element.get('nombre')) + '</div>' + '<p>PIA: S./' + numeral(f.element.get('pia')).format('0,0.00') + '</p><p>PIM: S./' + numeral(f.element.get('pim')).format('0,0.00') + '</p>',
                         });
                         $(element).popover('show');
-                                                
-                        
-                        
                     })
                     
                     this.mapHandler.addInteraction(this.selectSingleClick);
                     }
-                
-                
-                
-                
+
             },
             
             _createD3FromTopoJSON :function(layerName, options) {

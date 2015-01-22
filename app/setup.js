@@ -13,7 +13,8 @@ requirejs.config({
         'marionette': { deps: ['backbone'], exports:  ['Marionette']},
         
         'tabmodel': { deps: ['backbone'] },
-        
+        'numeral': { deps:[] },
+        'numeral_language': { deps:['numeral'] },
         'bootstrap': { deps: ['jquery'] },
         'material_design': { deps: ['bootstrap'] },
         'app': { deps: ['marionette'] },
@@ -35,6 +36,8 @@ requirejs.config({
         'css_bootstrap': '../bootstrap/dist/css',
         'material_design': '../material_design/bootstrap-material-design-master/dist/js/material.min',
         'css_material_design': '../material_design/bootstrap-material-design-master/dist/css',
+        'numeral': '../numeral/min/numeral.min',
+        'numeral_language': '../numeral/min/languages.min',
 
         'app': '../../app/app',
         'modules': '../../app/modules',

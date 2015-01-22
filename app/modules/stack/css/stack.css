@@ -33,13 +33,13 @@ section {
 	transform: none;
 	background: #fff;
 	border-radius: 30px;
-	width: 500px;
-	height: 400px;
+	width: 600px;
+	height: 450px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-left: -250px;
-	margin-top: -200px;
+	margin-left: -300px;
+	margin-top: -225px;
 
 	z-index: 11000;
 	padding: 8px !important;
