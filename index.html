@@ -11,7 +11,7 @@
     <!--script src="libs/d3/d3.js"></script>
     <script src="libs/d3/topojson.min.js"></script-->
     <body>
-       
+        <div id="loader"><div id="loader_icon"></div></div>
         <div id="header" class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -63,11 +63,69 @@
 </html>
 <!-- This is a source code error -- Must ask for topojson update -->
 <script id="some-template" type="text/html">
-  <ul>
-THIS IS FUCKING AWESOME
+<div class="btn-group">
+  <button  type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    Variable&nbsp;&nbsp;<span class="caret"></span>
+  </button>
+  <ul id="selector" class="dropdown-menu" role="menu">
+    <li role="presentation" class="active"><a href="#" rel="pia">PIA</a></li>
+    <li role="presentation"><a href="#" rel="pim">PIM</a></li>
+    <li role="presentation"><a href="#" rel="certificado">Certificado</a></li>
+    <li role="presentation"><a href="#" rel="comprometido">Comprometido</a></li>
+    <li role="presentation"><a href="#" rel="devengado">Devengado</a></li>
+    <li role="presentation"><a href="#" rel="girado">Girado</a></li>
   </ul>
-</script>
+</div>
 
+
+<div class="btn-group">
+  <button  type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    Territorio&nbsp;&nbsp;<span class="caret"></span>
+  </button>
+  <ul id="selector2" class="dropdown-menu" role="menu">
+    <li role="presentation" class="active"><a href="#" rel="departamentos">Departamentos</a></li>
+    <li role="presentation"><a href="#" rel="provincias">Provincias</a></li>
+    <li role="presentation"><a href="#" rel="distritos">Distritos</a></li>
+  </ul>
+</div>
+
+</script>
+<script src="libs/sonic/sonic.js"></script>
+<script>
+
+window.sonic = new Sonic({
+    width: 250,
+    height: 250,
+
+    stepsPerFrame: 5,    // best between 1 and 5
+    trailLength: 1,    // between 0 and 1
+    pointDistance: 0.01, // best between 0.01 and 0.05
+    fps: 20,
+
+    backgroundColor: 'transparent',
+    fillColor: '#66D9EF',
+
+    path: [
+        ['arc', 125, 125, 90, 0, 360]
+    ],
+
+    step: function(point, index, frame) {
+        var sizeMultiplier = 15; // try changing this :)
+        //this._.fillText(0|frame*this.fps, 1, 99);
+        this._.beginPath();
+        this._.moveTo(point.x, point.y);
+        this._.arc(
+                point.x, point.y,
+                index * sizeMultiplier, 0,
+                Math.PI*2, false
+        );
+        this._.closePath();
+        this._.fill();
+    }
+});
+window.sonic.play();
+document.getElementById('loader_icon').appendChild(window.sonic.canvas);
+</script>
 <script src="libs/requirejs/requirejs.2.1.15.min.js"></script>
 <script src="app/setup.js"></script>
 <script src="app/app.js"></script>

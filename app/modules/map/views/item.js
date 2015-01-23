@@ -14,6 +14,7 @@ define([
                 this.select =  null;
                 this.popup = null;
                 this.selectSingleClick = null;
+
             },
             events: {
                 'click .panel_button': 'panel_button_click'
@@ -41,7 +42,6 @@ define([
             },
             
             init: function() {
-
                 if (!this.mapHandler) {
                     this.mapHandler = new ol.Map({
                         renderer: 'canvas',
@@ -84,7 +84,9 @@ define([
                     // demo
                     var self = this;
                     this.mapHandler.on('click', function(evt) {
-                      self.clicked = evt.coordinate;
+                        self.clicked = evt.coordinate;
+                        var element = self.popup.getElement();
+                        $(element).popover('destroy');
                     });                
                 }
             },
@@ -108,7 +110,7 @@ define([
                         var GeoJSONReader = new ol.format.GeoJSON();
                         var _features = GeoJSONReader.readFeatures(urldata);
                         var quantile = d3.scale.quantile()
-                        .domain(_.compact(_.map(_features, function(feature){ return feature.get('pia'); })))
+                        .domain(_.compact(_.map(_features, function(feature){  return numeral(feature.get(options.value))._value; })))
                         .range(options.colors);
                         
                         App.camelCase = function(str) {
@@ -117,7 +119,7 @@ define([
                         
                         var nn = function(feature, resolution) {
                             return new ol.style.Text({
-                                text: App.camelCase(feature.get('nombre')),
+                                //text: App.camelCase(feature.get('nombre')),
                                 font: ' bold 13px Roboto',
                                 
                                 fill: new ol.style.Stroke({
@@ -135,10 +137,10 @@ define([
                             return  [
                                 new ol.style.Style({
                                     fill: new ol.style.Fill({
-                                        color: quantile(feature.get('pia'))
+                                        color: quantile(numeral(feature.get(options.value))._value)
                                     }),
                                     stroke: new ol.style.Stroke({
-                                        color: quantile(feature.get('pia')), //'#319FD3',
+                                        color: quantile(numeral(feature.get(options.value))._value), //'#319FD3',
                                         width: 0.2
                                     }),
                                     text: nn(feature, resolution)
@@ -186,7 +188,6 @@ define([
                         numeral.language('fr');
                         var element = self.popup.getElement();
                         var coordinate = self.clicked;
-                        $(element).popover('destroy');
                         self.popup.setPosition(coordinate);
                         // the keys are quoted to prevent renaming in ADVANCED mode.
                         $(element).popover({
@@ -200,7 +201,6 @@ define([
                     
                     this.mapHandler.addInteraction(this.selectSingleClick);
                     }
-
             },
             
             _createD3FromTopoJSON :function(layerName, options) {
@@ -273,9 +273,22 @@ define([
                 }
             },
             
+            // shouldn't hide, must delete
+            hideLayers: function(bool) {
+                console.log('hide');
+
+                for(var layer in this.layers){
+
+                    this.layers[layer].layer.set('visible', bool);
+                    
+                };
+            },
+            
             createLayer: function(type, layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView.createLayer function called.', 0);
-                console.log(this.layers[layerName])
+                
+                this.hideLayers(false);
+                
                 if (typeof this.layers[layerName] === 'undefined') {
                    switch(type) {
                         case 'mapquest_sat':
@@ -294,9 +307,11 @@ define([
                     App.MapModule.vent.trigger('App.MapModule.ItemView.createLayer', this);
                 }
                 else {
+                    this.layers[layerName].layer.set('visible', true);
+                    
                     App.execute('debug', 'App.MapModule.ItemView.createLayer not used.', 0);
+                    //this.layers[layerName].set(visible, value)
                 }
-
             }
         });
     }

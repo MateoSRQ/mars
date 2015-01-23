@@ -133,9 +133,19 @@ require([
                     App.execute('debug', 'App.MapModule.ItemView.panel_button_click function called.', 0);
                     //App.vent.trigger('App.StackModule.ContainerView.render', options);
                     StackModule.switchState(options);
-                });                
-                
-                
+                });
+                StackModule.vent.on('App.StackModule.MyView.select_option', function(options) {
+                    App.execute('debug', 'App.StackModule.MyView.select_option function called.', 0);
+                    App.vent.trigger('App.StackModule.MyView.select_option', options);
+                    console.log(options)
+                    //StackModule.switchState(options);
+                });
+                StackModule.vent.on('App.StackModule.MyView.select2_option', function(options) {
+                    App.execute('debug', 'App.StackModule.MyView.select2_option function called.', 0);
+                    App.vent.trigger('App.StackModule.MyView.select2_option', options);
+                    console.log(options)
+                    //StackModule.switchState(options);
+                }); 
             });
             
             
