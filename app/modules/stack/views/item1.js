@@ -6,12 +6,12 @@ App.StackModule.MyView = Backbone.Marionette.ItemView.extend({
     },
   
     select_option: function(e) {
-        console.log('clocko');
+
         App.StackModule.vent.trigger('App.StackModule.MyView.select_option', e);
     },
     
     select2_option: function(e) {
-        console.log('clocko2');
+
         App.StackModule.vent.trigger('App.StackModule.MyView.select2_option', e);
     }
 });
