@@ -76,11 +76,16 @@ require([
                 };
                 
                 MapModule.createLayer = function(id, type, layerName, options) {
-                    
                     App.execute('debug', 'App.MapModule.createLayer called.', 0);
-                    // check check check
                     App.MapModule.views[id].createLayer(type, layerName, options);
                 };
+                
+                MapModule.createControl = function(id, type, controlName, options) {
+                    App.execute('debug', 'App.MapModule.createControl called.', 0);
+                    App.MapModule.views[id].createControl(type, controlName, options);
+                }
+                
+                
             });
             
             

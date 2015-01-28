@@ -11,6 +11,7 @@ define([
                 this.$el.prop('id', this.model.get('id'));
                 this.$el.prop('class', this.model.get('class'));
                 this.layers = [];
+                this.controls = [];
                 this.select =  null;
                 this.popup = null;
                 this.selectSingleClick = null;
@@ -64,6 +65,7 @@ define([
                     });
                     
                     // Popup showing the position the user clicked
+                    /*
                     this.popup = new ol.Overlay({
                         element: document.getElementById('popup')
                     });
@@ -75,7 +77,8 @@ define([
                         self.clicked = evt.coordinate;
                         var element = self.popup.getElement();
                         $(element).popover('destroy');
-                    });                
+                    });
+                    */
                 }
             },
             
@@ -140,23 +143,7 @@ define([
                             }),
                             type: 'vector',
                         };
-                        /*
-                        self.layers[layerName] = {
-                            layer: new ol.layer.Image({
-                                source: new ol.source.ImageVector({
-                                    source: new ol.source.Vector({
-                                        projection: 'EPSG:3857',
-                                        features: _features
-                                    }),
-                                    style: function(feature, resolution) {
-                                        return styleFunction(feature, resolution);
-                                    }
-                                })
-                            })
-                        };
-                        */
-                        
-                        
+
                        
                     self.mapHandler.addLayer(self.layers[layerName].layer);
                     })
@@ -173,7 +160,7 @@ define([
                         })];
                     };
                     
-                    
+                    /*
                     this.selectSingleClick = new ol.interaction.Select({
                     });
                     var selected_features = this.selectSingleClick.getFeatures();
@@ -194,6 +181,7 @@ define([
                     })
                     
                     this.mapHandler.addInteraction(this.selectSingleClick);
+                    */
                     }
             },
             /*
@@ -286,7 +274,6 @@ define([
 
             _createMapQuestSatelliteLayer: function(layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView._createMapQuestSatelliteLayer function called.', 0);
-                
                 if (this.layers[layerName] !== null) {
                     this.layers[layerName] = {
                         layer: new ol.layer.Tile({
@@ -341,7 +328,28 @@ define([
                     App.execute('debug', 'App.MapModule.ItemView.createLayer not used.', 0);
                     //this.layers[layerName].set(visible, value)
                 }
+            },
+            
+            createControl: function(type, controlName, options){
+                App.execute('debug', 'App.MapModule.ItemView.createControl function called.', 0);
+                if (typeof this.controls[controlName] === 'undefined') {
+                    switch(type) {
+                        case 'select':
+                            this._createSelectControl(controlName, options);
+                            break;
+                    }
+                }
+                else {
+                }
+            },
+            
+            _createSelectControl: function(controlName, options) {
+                App.execute('debug', 'App.MapModule.ItemView._createSelectControl function called.', 0);                
+                this.controls[controlName] = new ol.interaction.Select({});
+                this.mapHandler.addInteraction(this.controls[controlName]);
             }
+            
+            
         });
     }
 );

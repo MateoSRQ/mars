@@ -106,20 +106,14 @@ require([
                 App.MapModule.init('map_1');
                 
                 _.each(_maps, function(i){
-                    //i.set('region', App.TabModule.manager.get(i.get('region')));
-                    console.log('XXX');
                     var _layer = i.get('layer')
                     var _parent = i.get('id')
-                    console.log(_layer);
-                    console.log(i.get('id'));
                     if (typeof _layer !== 'undefined') {
                         App.MapModule.createLayer(_parent, _layer.get('type'), _layer.get('id'), {});
                     }
-
                 })
                 
                 
-                //App.MapModule.createLayer('map_1', 'tile_layer', 'base_layer', {});
                 
                 /*
                 $.ajax({
@@ -213,6 +207,7 @@ require([
                                     value: 'comprometido',
                                     zoom: 7
                                 });
+                                App.MapModule.createControl('map_2', 'select', {});
                                 App.vent.trigger('loaded');
                             }
                         });
