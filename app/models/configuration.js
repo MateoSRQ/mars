@@ -28,7 +28,7 @@ App.LayerItem = Backbone.Model.extend({
 });
 
 App.Layer1 = new Backbone.Model({
-    id: 1,
+    id: 'local_base',
     type: 'tile_layer',
     name: 'base_layer',
     url: 'http://127.0.0.1/tileserver/OSMBright/{z}/{x}/{y}.png',
