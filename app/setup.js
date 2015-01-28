@@ -54,7 +54,4 @@ requirejs.onResourceLoad = function (context, map, depArray) {
     if (!window.debug) {
         console.log('[' + map.name + '] resource loaded!');
     }
-    
 }
-
-

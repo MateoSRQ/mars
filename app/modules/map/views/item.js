@@ -52,18 +52,13 @@ define([
                             })
                         }),
                         layers: [
-                            new ol.layer.Tile({
-                                source: new ol.source.XYZ({
-                                    url: 'http://127.0.0.1/tileserver/OSMBright/{z}/{x}/{y}.png',
-                                    extent: ol.proj.transform([-82.5732,-19.4977,-67.2803,1.6038], 'EPSG:4326', 'EPSG:3857'),
-                                    minZoom: 5,
-                                    maxZoom: 12,
-                                    tilePixelRatio: 1
-                                })
-                            })
+
                         ],
                         view: new ol.View({
                             center: ol.proj.transform(this.model.get('center'), 'EPSG:4326', 'EPSG:3857'),
+                            extent: ol.proj.transform(this.model.get('extent'), 'EPSG:4326', 'EPSG:3857'),
+                            minZoom: this.model.get('minzoom'),
+                            maxZoom: this.model.get('maxzoom'),
                             zoom: this.model.get('zoom'),
                         })
                     });
@@ -92,11 +87,7 @@ define([
                     ], function (){
 
                         var GeoJSONReader = new ol.format.GeoJSON();
-
                         var _features = GeoJSONReader.readFeatures(options.urldata);
-                        console.log('OPTIONS')
-                        console.log(options)
-                        
                         var quantile = d3.scale.quantile()
                         .domain(_.compact(_.map(_features, function(feature){  return numeral(feature.get(options.value))._value; })))
                         .range(options.colors);
@@ -149,6 +140,22 @@ define([
                             }),
                             type: 'vector',
                         };
+                        /*
+                        self.layers[layerName] = {
+                            layer: new ol.layer.Image({
+                                source: new ol.source.ImageVector({
+                                    source: new ol.source.Vector({
+                                        projection: 'EPSG:3857',
+                                        features: _features
+                                    }),
+                                    style: function(feature, resolution) {
+                                        return styleFunction(feature, resolution);
+                                    }
+                                })
+                            })
+                        };
+                        */
+                        
                         
                        
                     self.mapHandler.addLayer(self.layers[layerName].layer);
@@ -252,6 +259,31 @@ define([
                 
             },
             */
+            _createTileLayer: function(layerName, options) {
+                App.execute('debug', 'App.MapModule.ItemView._createMapQuestSatelliteLayer function called.', 0);
+                
+                if (this.layers[layerName] !== null) {
+                    this.layers[layerName] = {
+                        layer: new ol.layer.Tile({
+                            source: new ol.source.XYZ({
+                                url: 'http://127.0.0.1/tileserver/OSMBright/{z}/{x}/{y}.png',
+                                extent: ol.proj.transform([-82.5732,-19.4977,-67.2803,1.6038], 'EPSG:4326', 'EPSG:3857'),
+                                minZoom: 6,
+                                maxZoom: 12,
+                                tilePixelRatio: 1
+                            }),
+                            name: layerName
+                        }),
+                        type: 'raster'
+                    };
+                    this.mapHandler.addLayer(this.layers[layerName].layer);
+                    App.MapModule.vent.trigger('App.MapModule.ItemView._createTileLayer', this);
+                }
+                else {
+                    // PUT ERROR
+                }
+            },
+
             _createMapQuestSatelliteLayer: function(layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView._createMapQuestSatelliteLayer function called.', 0);
                 
@@ -273,12 +305,8 @@ define([
             
             // shouldn't hide, must delete
             hideLayers: function(bool) {
-                console.log('hide');
-
                 for(var layer in this.layers){
-
                     this.layers[layer].layer.set('visible', bool);
-                    
                 };
             },
             
@@ -297,6 +325,9 @@ define([
                             break;
                         case 'local_d3_json':
                             this._createD3FromTopoJSON(layerName, options);
+                            break;
+                        case 'tile_layer':
+                            this._createTileLayer(layerName, options);
                             break;
                         default:
                             // PUT ERROR

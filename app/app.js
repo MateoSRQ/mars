@@ -55,7 +55,6 @@ require([
             
             App.vent.on('loading', function(){
                 App.execute('debug', 'App.loading event called.', 0);
-
                 $('#loading').velocity({
                     backgroundColorAlpha: 1
                 }, 0);
@@ -68,7 +67,6 @@ require([
             
             App.vent.on('loaded', function(){
                 App.execute('debug', 'App.loaded event called.', 0);
-
                 $('#loading').velocity({
                     backgroundColorAlpha: 0
                 }, 1000);
@@ -101,14 +99,18 @@ require([
                 var _maps = App.Configuration.pluck('map');
                 
                 _.each(_maps, function(i){
-                    console.log(i);
                     i.set('region', App.TabModule.manager.get(i.get('region')));
                 })
                 
                 App.MapModule.add(_maps);
+                
+            
+                
                 App.MapModule.init('map_1');
                 
-
+                App.MapModule.createLayer('map_1', 'tile_layer', 'base_layer', {});
+                
+                /*
                 $.ajax({
                     dataType: "json",
                     //async: false,
@@ -116,7 +118,6 @@ require([
                     data: '',
                     success: function(r) {
                         App.MapModule.createLayer('map_1', 'local_json', 'map_1_departamentos_pia', {
-                            //data_url: ,
                             urldata: r,
                             colors: ['#ffffcc','#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026'],
                             value: 'pia',       
@@ -126,6 +127,8 @@ require([
                         App.vent.trigger('loaded');
                     }
                 });
+                */
+                App.vent.trigger('loaded');
                 App.execute('load', 'stack', 'StackModule', {});
             });
             
@@ -151,7 +154,6 @@ require([
                 
                 var region = App.StackModule.getRegion('stack_1', 'page_1_1', 'headerRegion');
                 region.show(new App.StackModule.MyView())
-                
                 App.StackModule.init('stack_1');
                 
                 
@@ -251,7 +253,7 @@ require([
                 console.log(_type);
                 App.StackModule.switchState('stack_1');
 
-                
+
                 $.ajax({
                     dataType: "json",
                     //async: false,

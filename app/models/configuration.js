@@ -14,8 +14,30 @@ App.ConfigurationCollection = Backbone.Collection.extend({
     model: App.ConfigurationItem
 });
 
-App.MapItem = Backbone.Model.extend({
+App.MapItem = Backbone.AssociatedModel.extend({
+    relations: [
+        {
+            type: Backbone.One, //nature of the relationship
+            key: 'layer', // attribute of Employee
+            relatedModel: 'App.LayerItem' //AssociatedModel for attribute key
+        }
+    ],    
 });
+
+App.LayerItem = Backbone.Model.extend({
+});
+
+App.Layer1 = new Backbone.Model({
+    id: 1,
+    type: 'tile_layer',
+    name: 'base_layer',
+    url: 'http://127.0.0.1/tileserver/OSMBright/{z}/{x}/{y}.png',
+    extent: [-82.5732,-19.4977,-67.2803,1.6038],
+    minZoom: 6,
+    maxZoom: 12,
+    tilePixelRatio: 1    
+})
+
 
 App.Map1 = new App.MapItem({
     id: 'map_1',
@@ -27,7 +49,11 @@ App.Map1 = new App.MapItem({
     panel_class: 'panel_stack coverflow',
     panel_target: 'stack_1',
     center: [-75,-10.50],
-    zoom: 5    
+    zoom: 5,
+    minzoom: 6,
+    maxzoom: 12,
+    extent: [-82.5732,-19.4977,-67.2803,1.6038],
+    layer: App.Layer1
 })
 
 App.Map2 = new App.MapItem({
@@ -40,7 +66,10 @@ App.Map2 = new App.MapItem({
     panel_class: 'panel_stack coverflow',
     panel_target: 'stack_2',
     center: [-75,-10.50],
-    zoom: 5    
+    zoom: 5,
+    minzoom: 5,
+    maxzoom: 10,
+    extent: [-77,-19,-65, 1]
 })
 
 App.Map3 = new App.MapItem({
@@ -53,7 +82,10 @@ App.Map3 = new App.MapItem({
     panel_class: 'panel_stack coverflow',
     panel_target: 'stack_3',
     center: [-75,-10.50],
-    zoom: 5    
+    zoom: 5,
+    minzoom: 6,
+    maxzoom: 12,
+    extent: [-82.5732,-19.4977,-67.2803,1.6038]
 })
 
 
