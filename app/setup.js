@@ -9,28 +9,26 @@ requirejs.config({
         'jquery':  { deps: [] },
         'underscore': { deps: [], exports: ['_'] },
         'backbone': { deps: ['underscore', 'jquery'], exports: ['Backbone'] },
-        'backbone_associations': { deps: ['backbone'] },
+        'backbone_relational': { deps: ['backbone'] },
         'marionette': { deps: ['backbone'], exports:  ['Marionette']},
         
+        'tabmodel': { deps: ['backbone'] },
         'numeral': { deps:[] },
         'numeral_language': { deps:['numeral'] },
         'bootstrap': { deps: ['jquery'] },
         'material_design': { deps: ['bootstrap'] },
         'app': { deps: ['marionette'] },
-
-        'configuration': { deps: [] },
+        'json3': { deps: [] },
         'defiant': { deps: ['jquery'], exports: '' },
-        'scrollbar': { deps: ['jquery'] },
-        'velocity': { deps: [] }
+        'scrollbar': { deps: ['jquery'] }
     },
     paths: {
-        'jquery': '../jquery/jquery-2.1.3.min',
+        'jquery': '../jquery/jquery-2.1.1.min',
         'underscore': '../underscore/underscore-1.7.0.min',
         'backbone': '../backbone/backbone-1.1.2.min',
-        'backbone_associations': '../backbone/backbone-associations.min',
+        'backbone_relational': '../backbone/backbone.relational.min',
         'marionette': '../marionette/marionette-2.3.0.min',
-        'velocity': '../velocity/velocity.min',
-
+        'json3': '../json3/json3.min',
         'defiant': '../defiant/defiant.min',
         'scrollbar': '../perfect-scrollbar-0.5.8/min/perfect-scrollbar.min',
         'css_scrollbar': '../perfect-scrollbar-0.5.8/min',
@@ -44,7 +42,7 @@ requirejs.config({
         'app': '../../app/app',
         'modules': '../../app/modules',
         
-        'configuration': '../../app/models/configuration',
+        'tabmodel': '../../app/models/tabs',
         
         'fonts': '../../libs/fonts'
     }

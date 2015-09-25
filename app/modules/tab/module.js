@@ -2,6 +2,7 @@
 
 App.module("TabModule", function (TabModule) {
     TabModule.startWithParent = false;
+
     this.collection = {};
     this.views = {};
     TabModule.manager = null;
@@ -35,6 +36,7 @@ require([
         ],   
         function () {
             App.module('TabModule', function (TabModule, App, Backbone, Marionette, $, _) {
+
                 this.addInitializer(function(){
                     App.execute('debug', 'App.TabModule.addInitializer function called.', 0);
                     if (this.options.id && typeof(this.options.id) !== undefined ) {
@@ -78,7 +80,9 @@ require([
                 App.execute('debug', 'App.TabModule.HeaderItemView.header_item_click function called.', 0);
                 App.vent.trigger('App.TabModule.HeaderItemView.header_item_click', options);
             });
+            
             App.vent.trigger('TabModule.start');
         }
+        
     )}
 )

@@ -26,9 +26,9 @@ define([
             },
             template: function(model) {
                 return _.template(item)({
-                    panel_id: model.panel_id,
-                    panel_class: model.panel_class,
-                    panel_target: model.panel_target
+                    panel_id: model.options.panel_id,
+                    panel_class: model.options.panel_class,
+                    panel_target: model.options.panel_target
                 })
             },
             onRender: function(){
@@ -49,10 +49,12 @@ define([
                         target: this.model.get('id'),
                         controls: ol.control.defaults({
                             attributionOptions:  ({
-                                collapsible: false
+                              collapsible: false
                             })
-                        }),
+                          }),
+    
                         layers: [
+<<<<<<< HEAD
 
                         ],
                         view: new ol.View({
@@ -61,6 +63,27 @@ define([
                             minZoom: this.model.get('minzoom'),
                             maxZoom: this.model.get('maxzoom'),
                             zoom: this.model.get('zoom'),
+=======
+                            new ol.layer.Tile({
+                                source: new ol.source.MapQuest({layer: 'osm'}),
+                                name: 'tesla'
+                            }),
+                            /*
+                            new ol.layer.Tile({
+                                source: new ol.source.XYZ({
+                                    url: 'http://127.0.0.1/tileserver/mbtiles/geography-class/{z}/{x}/{y}.png',
+                                    //extent: extent,
+                                    minZoom: 6,
+                                    maxZoom: 13,
+                                    tilePixelRatio: 1
+                                })
+                            })
+                            */
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.transform(this.model.get('options').center, 'EPSG:4326', 'EPSG:3857'),
+                            zoom: this.model.get('options').zoom,
+>>>>>>> parent of 8978933... REFACTORING ALL
                         })
                     });
                     
@@ -88,9 +111,22 @@ define([
                     var self = this;
                     require([
                     ], function (){
-
+                        var urldata= null;
+                        $.ajax({
+                            dataType: "json",
+                            async: false,
+                            url: options.data_url,
+                            data: '',
+                            success: function(r) {
+                                urldata = r;
+                            }
+                        });
                         var GeoJSONReader = new ol.format.GeoJSON();
+<<<<<<< HEAD
                         var _features = GeoJSONReader.readFeatures(options.urldata);
+=======
+                        var _features = GeoJSONReader.readFeatures(urldata);
+>>>>>>> parent of 8978933... REFACTORING ALL
                         var quantile = d3.scale.quantile()
                         .domain(_.compact(_.map(_features, function(feature){  return numeral(feature.get(options.value))._value; })))
                         .range(options.colors);
@@ -143,8 +179,14 @@ define([
                             }),
                             type: 'vector',
                         };
+<<<<<<< HEAD
 
                        
+=======
+                        
+
+                        
+>>>>>>> parent of 8978933... REFACTORING ALL
                     self.mapHandler.addLayer(self.layers[layerName].layer);
                     })
                     /* check */
@@ -184,18 +226,8 @@ define([
                     */
                     }
             },
-            /*
-            _createD3FromTopoJSON: function(layerName, options) {
-                App.execute('debug', 'App.MapModule.ItemView._createD3FromTopoJSON function called.', 0);
-                var self = this;
-                
-                //d3.json('data/topojson/us.json', function(error, data) {
-                //}
-                    
-                    //var features =
-                    //var features = topojson.feature(us, us.objects.counties);
-                }              
-                /*
+            
+            _createD3FromTopoJSON :function(layerName, options) {
                 App.execute('debug', 'App.MapModule.ItemView._createD3FromTopoJSON function called.', 0);
                 var self = this;
 
@@ -244,10 +276,14 @@ define([
                     });
                     self.mapHandler.addLayer(self.layers[layerName]);
                 });
-                
             },
+<<<<<<< HEAD
             */
             _createTileLayer: function(layerName, options) {
+=======
+            
+            _createMapQuestSatelliteLayer: function(layerName, options) {
+>>>>>>> parent of 8978933... REFACTORING ALL
                 App.execute('debug', 'App.MapModule.ItemView._createMapQuestSatelliteLayer function called.', 0);
                 
                 if (this.layers[layerName] !== null) {
